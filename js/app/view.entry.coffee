@@ -32,6 +32,7 @@ define 'view.entry', ->
     ###
     renderCommon: ->
       @$el.attr 'role', 'entry'
+      @$(r 'link').attr href: "#e/#{@entry.slug()}"
       @$(r 'text').html @entry.get('text')
       @$(r 'date').html @entry.date('long')
       @$(r 'date_ago').html @entry.date('ago')
@@ -69,7 +70,7 @@ define 'view.entry', ->
     ###
 
     template: """
-      <a class='link' href='#'></a>
+      <a class='link' href='#' role='link'></a>
       <div class='image' role='image'>
       </div>
       <div class='meta'>

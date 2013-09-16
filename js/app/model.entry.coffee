@@ -43,6 +43,8 @@ define 'model.entry', ->
 
     ratio: -> @get('image_ratio') or 1
 
+    slug: -> @cid
+
     ###*
        date('ago')       #=> "3 days ago"
        date('long')      #=> September 16th, 2013
@@ -58,3 +60,6 @@ define 'model.entry', ->
 define 'collection.entries', ->
   class Entries extends Backbone.Collection
     model: require('model.entry')
+
+    findBySlug: (slug) ->
+      @detect (entry) -> entry.cid is slug

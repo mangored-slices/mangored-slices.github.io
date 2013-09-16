@@ -182,6 +182,10 @@ define('model.entry', function() {
       return this.get('image_ratio') || 1;
     };
 
+    Entry.prototype.slug = function() {
+      return this.cid;
+    };
+
     /**
        date('ago')       #=> "3 days ago"
        date('long')      #=> September 16th, 2013
@@ -213,6 +217,12 @@ define('collection.entries', function() {
 
     Entries.prototype.model = require('model.entry');
 
+    Entries.prototype.findBySlug = function(slug) {
+      return this.detect(function(entry) {
+        return entry.cid === slug;
+      });
+    };
+
     return Entries;
 
   })(Backbone.Collection);
@@ -234,20 +244,31 @@ define('router.app', function() {
     AppRouter.prototype.routes = {
       '': 'home',
       'on/:service': 'service',
-      'entry/:cid': 'entry'
+      'e/:slug': 'entry'
     };
 
     AppRouter.prototype.home = function() {
+      App.loader.ping();
       App.menuView.activate(null);
       return App.listView.filterBy(null);
     };
 
     AppRouter.prototype.service = function(service) {
+      App.loader.ping();
       App.menuView.activate(service);
       return App.listView.filterBy(service);
     };
 
-    AppRouter.prototype.entry = function(cid) {};
+    AppRouter.prototype.entry = function(slug) {
+      var entry;
+      App.loader.ping();
+      entry = Data.entries.findBySlug(slug);
+      if (entry) {
+        return console.log("Load", entry.get('text'));
+      } else {
+        return alert("Unknown entry");
+      }
+    };
 
     return AppRouter;
 
@@ -308,6 +329,9 @@ define('view.entry', function() {
 
     EntryView.prototype.renderCommon = function() {
       this.$el.attr('role', 'entry');
+      this.$(r('link')).attr({
+        href: "#e/" + (this.entry.slug())
+      });
       this.$(r('text')).html(this.entry.get('text'));
       this.$(r('date')).html(this.entry.date('long'));
       return this.$(r('date_ago')).html(this.entry.date('ago'));
@@ -362,7 +386,7 @@ define('view.entry', function() {
     */
 
 
-    EntryView.prototype.template = "<a class='link' href='#'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div class='date' role='date'></div>\n  <div class='text' role='text'></div>\n  <div class='date-ago' role='date_ago'></div>\n</div>";
+    EntryView.prototype.template = "<a class='link' href='#' role='link'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div class='date' role='date'></div>\n  <div class='text' role='text'></div>\n  <div class='date-ago' role='date_ago'></div>\n</div>";
 
     return EntryView;
 
