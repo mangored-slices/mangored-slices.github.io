@@ -146,6 +146,9 @@ textarea {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+/* ----------------------------------------------------------------------------
+ * Base styles
+ */
 body {
   padding: 10px;
 }
@@ -162,6 +165,9 @@ body {
 a {
   text-decoration: none;
 }
+/* ----------------------------------------------------------------------------
+ * Header
+ */
 .main-heading {
   zoom: 1;
   margin-bottom: 50px;
@@ -228,6 +234,18 @@ a {
   -o-transform: skew(-30deg);
   -ms-transform: skew(-30deg);
   transform: skew(-30deg);
+  -webkit-transition: background 150ms linear;
+  -moz-transition: background 150ms linear;
+  -o-transition: background 150ms linear;
+  -ms-transition: background 150ms linear;
+  transition: background 150ms linear;
+}
+.main-heading:hover .menu i {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
 }
 .main-heading:hover .menu a.link-flickr i {
   background: rgba(221,139,69,0.5);
@@ -292,6 +310,9 @@ a {
   -ms-transition: opacity 50ms linear 130ms;
   transition: opacity 50ms linear 130ms;
 }
+/* ----------------------------------------------------------------------------
+ * Entry listing
+ */
 .body {
   margin: 0 auto;
 }
@@ -355,6 +376,9 @@ a {
     height: 660px;
   }
 }
+/* ----------------------------------------------------------------------------
+ * Entry item
+ */
 .entry-item {
   position: relative;
 }
@@ -396,6 +420,9 @@ a {
   font-weight: bold;
   font-size: 0.9em;
 }
+/* ----------------------------------------------------------------------------
+ * Image entries
+ */
 .entry-image .image,
 .entry-image .meta {
   display: block;
@@ -469,6 +496,9 @@ a {
   -ms-filter: none;
   filter: none;
 }
+/* ----------------------------------------------------------------------------
+ * Text entries
+ */
 .entry-text a.link {
   display: none;
 }

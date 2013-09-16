@@ -15,7 +15,9 @@ body, input, td, textarea
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
 
-// --------
+/* ----------------------------------------------------------------------------
+ * Base styles
+ */
 
 body
   &
@@ -30,8 +32,9 @@ body
 a
   text-decoration: none
 
-// Header
-// ------
+/* ----------------------------------------------------------------------------
+ * Header
+ */
 
 .main-heading
   clearfix()
@@ -82,9 +85,12 @@ a
 
     background: $red
     transform: skew(-30deg)
+    transition: background 150ms linear
 
   // Faded backgroud (when heading is hovered)
   .main-heading:hover &
+    i
+      transition: none
     a.link-flickr i
       background: rgba($flickr-bg, 0.5)
     a.link-instagram i
@@ -126,8 +132,9 @@ a
       opacity: 1
       transition: opacity 50ms linear 130ms
 
-// Entry listing
-// -------------
+/* ----------------------------------------------------------------------------
+ * Entry listing
+ */
 
 .body
   margin: 0 auto
@@ -169,8 +176,9 @@ a
         &, .image
           height: ($cell * 3 + $gut * 2)
 
-// Entry item
-// ----------
+/* ----------------------------------------------------------------------------
+ * Entry item
+ */
 
 .entry-item
   &
@@ -205,8 +213,9 @@ a
     font-weight: bold
     font-size: 0.9em
 
-// Image entries
-// -------------
+/* ----------------------------------------------------------------------------
+ * Image entries
+ */
 
 .entry-image
   .image, .meta
@@ -259,8 +268,9 @@ a
       opacity: 1
 
 
-// Text entries
-// ------------
+/* ----------------------------------------------------------------------------
+ * Text entries
+ */
 
 .entry-text
   a.link
