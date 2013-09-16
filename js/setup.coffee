@@ -9,9 +9,8 @@ $ ->
   App.router  = new (require 'router.app')
   App.fetcher = new (require 'app.fetcher')
 
+$ ->
   # Fuego!
   App.loader.load
-  App.fetcher.fetch()
-  .done ->
-    console.log("[History] start")
-    Backbone.history.start()
+    App.fetcher.fetch()
+    .done -> Backbone.history.start()
