@@ -19,8 +19,8 @@ assets/style.css: \
 	cat $^ > $@
 
 assets/vendor.js: \
-	vendor/respond-1.1.0.js \
 	vendor/jquery-2.0.2.js \
+	vendor/respond-1.1.0.js \
 	vendor/underscore-1.4.4.js \
 	vendor/backbone-1.0.0.js \
 	vendor/moment-2.0.0.js \

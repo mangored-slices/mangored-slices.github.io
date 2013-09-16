@@ -4,4 +4,4 @@ define 'router.app', ->
       '': 'home'
 
     home: ->
-      # alert 'home'
+      alert 'home'

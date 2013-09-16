@@ -1,5 +1,11 @@
-$ ->
-  AppRouter = require('router.app')
+define 'app', ->
+  App = {}
+  App.router  = new require('router.app')
+  App.fetcher = new require('app.fetcher')
 
-  new AppRouter()
+  App
+
+$ ->
+  window.App = require('app')
+
   Backbone.history.start()
