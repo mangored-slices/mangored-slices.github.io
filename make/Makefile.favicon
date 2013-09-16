@@ -1,0 +1,15 @@
+# Converts images/favicon.png to favicon.ico.
+#
+# Usage:
+#   add `favicon.ico` to your build dependencies.
+#
+include make/Makefile.imagemagick
+
+favicon_src ?= images/favicon.png
+
+favicon.ico: $(favicon_src)
+	$(check_imagemagick)
+	$(convert) $< -resize 16x16 _favicon16.png
+	$(convert) $< -resize 32x32 _favicon32.png
+	$(convert) $< $@
+	rm _favicon16.png _favicon32.png

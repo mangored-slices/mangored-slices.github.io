@@ -6,9 +6,11 @@ include make/Makefile.stylus
 include make/Makefile.coffeescript
 include make/Makefile.uglifyjs
 include make/Makefile.images
+include make/Makefile.favicon
 
 assets: \
 	$(image_files) \
+	favicon.ico \
 	assets/vendor.js \
 	assets/style.css \
 	assets/app.js
