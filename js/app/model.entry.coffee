@@ -17,13 +17,6 @@ define 'model.entry', ->
   class Entry extends Backbone.Model
 
     ###*
-      entry.dateAgo()   #=> "a few seconds ago"
-    ###
-
-    dateAgo: ->
-      moment(@get('date')).fromNow()
-
-    ###*
       entry.source()
       entry.source().name
       entry.source().service
@@ -41,6 +34,17 @@ define 'model.entry', ->
         'image'
       else
         'text'
+
+    ###*
+       date('ago')       #=> "3 days ago"
+       date('long')      #=> September 16th, 2013
+    ###
+
+    date: (fmt) ->
+      if fmt is 'ago'
+        moment(@get('date')).fromNow()
+      else #long
+        moment(@get('date')).format('MMMM Do, YYYY')
 
 # -----
 define 'collection.entries', ->

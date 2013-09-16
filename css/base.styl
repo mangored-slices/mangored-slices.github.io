@@ -14,3 +14,123 @@ body, input, td, textarea
 *
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
+
+// --------
+
+body
+  &
+    padding: 10px
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    padding: 30px
+
+  @media (min-width: 768px) /* Desktop */
+    padding: 50px
+
+// Entry listing
+// -------------
+
+.entry-list
+  border: solid 1px #eee
+  clearfix()
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    .entry-item
+      float: left
+
+      &, .image
+        width: 250px
+        height: 250px
+
+// Entry item
+// ----------
+
+.entry-item
+  margin: 0 40px 40px 0
+
+  position: relative
+
+  .image, .meta
+    overflow: hidden
+
+  &, .image, .meta
+    box-sizing: border-box
+
+  // Invisible link
+  a.link
+    display: block
+    absolute: 0 0
+    width: 100%
+    height: 100%
+    z-index: 10
+
+  // Date displays
+  .date, .date-ago
+    text-transform: uppercase
+    font-weight: bold
+    font-size: 0.9em
+
+
+// Image entries
+// -------------
+
+.entry-image
+  .image, .meta
+    display: block
+    absolute: 0 0
+    width: 100%
+    height: 100%
+
+  .date
+    display: none
+
+  .image
+    background: #333
+    img
+      display: block
+      width: 100%
+      height: 100%
+
+  .meta
+    opacity: 0
+    transition: all $spd ease
+    transform: scale(0.95) translate3d(0,0,0)
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+
+    padding: 20px
+
+    background: rgba($red, $hover-strength)
+    color: white
+
+    text-shadow: 0 2px 2px rgba(black, 0.2)
+
+  .meta .text
+    font-size: 1.3em
+    line-height: 1.10
+
+  .meta .date-ago:before
+    small-hr(15px)
+
+  &:hover
+    .meta
+      transform: scale(1.05) translate3d(0,0,0)
+      opacity: 1
+
+
+// Text entries
+// ------------
+
+.entry-text
+  .image
+    display: none
+
+  .text
+    font-size: 1.3em
+
+  .date-ago
+    display: none
+

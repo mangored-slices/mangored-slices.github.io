@@ -1,5 +1,4 @@
 uglify ?= ./node_modules/.bin/uglifyjs
-uglify_compress ?= $(uglify) -m
 uglify_version ?= 2.4.x
 
 $(uglify):

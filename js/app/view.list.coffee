@@ -2,7 +2,7 @@ define 'view.list', ->
   EntryView = require 'view.entry'
 
   class ListView extends Backbone.View
-    el: $('.list-view')
+    el: $('[role~="list_view"]')
 
     ###*
     Constructor

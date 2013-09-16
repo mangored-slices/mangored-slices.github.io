@@ -138,15 +138,6 @@ define('model.entry', function() {
     }
 
     /**
-      entry.dateAgo()   #=> "a few seconds ago"
-    */
-
-
-    Entry.prototype.dateAgo = function() {
-      return moment(this.get('date')).fromNow();
-    };
-
-    /**
       entry.source()
       entry.source().name
       entry.source().service
@@ -168,6 +159,20 @@ define('model.entry', function() {
         return 'image';
       } else {
         return 'text';
+      }
+    };
+
+    /**
+       date('ago')       #=> "3 days ago"
+       date('long')      #=> September 16th, 2013
+    */
+
+
+    Entry.prototype.date = function(fmt) {
+      if (fmt === 'ago') {
+        return moment(this.get('date')).fromNow();
+      } else {
+        return moment(this.get('date')).format('MMMM Do, YYYY');
       }
     };
 
@@ -235,24 +240,49 @@ define('view.entry', function() {
       return _ref;
     }
 
+    EntryView.prototype.tagName = 'article';
+
+    EntryView.prototype.className = 'entry-item';
+
+    /** Renders the element
+    */
+
+
     EntryView.prototype.render = function() {
       var entry, klass;
       entry = this.options.entry;
       this.$el.html(this.template);
       klass = entry.typeClass();
-      this.renderCommon(entry, klass);
+      this.renderClasses(entry, klass);
+      this.renderCommon(entry);
       if (klass === 'image') {
         this.renderImage(entry);
       }
       return this;
     };
 
-    EntryView.prototype.renderCommon = function(entry, klass) {
+    /** Adds CSS classes
+    */
+
+
+    EntryView.prototype.renderClasses = function(entry, klass) {
       this.$el.addClass("entry-" + klass);
-      this.$el.addClass("service-" + (entry.source().name));
-      this.$(r('text')).html(entry.get('text'));
-      return this.$(r('date_ago')).html(entry.dateAgo());
+      return this.$el.addClass("service-" + (entry.source().name));
     };
+
+    /** Renders common entries
+    */
+
+
+    EntryView.prototype.renderCommon = function(entry) {
+      this.$(r('text')).html(entry.get('text'));
+      this.$(r('date')).html(entry.date('long'));
+      return this.$(r('date_ago')).html(entry.date('ago'));
+    };
+
+    /** Renders an image type
+    */
+
 
     EntryView.prototype.renderImage = function(entry) {
       return this.$(r('image')).append($("<img>").attr({
@@ -260,7 +290,11 @@ define('view.entry', function() {
       }));
     };
 
-    EntryView.prototype.template = "<div class='image' role='image'>\n</div>\n<div class='text' role='text'></div>\n<div class='date' role='date_ago'></div>";
+    /** HTML template
+    */
+
+
+    EntryView.prototype.template = "<a class='link' href='#'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div class='date' role='date'></div>\n  <div class='text' role='text'></div>\n  <div class='date-ago' role='date_ago'></div>\n</div>";
 
     return EntryView;
 
@@ -284,7 +318,7 @@ define('view.list', function() {
       return _ref;
     }
 
-    ListView.prototype.el = $('.list-view');
+    ListView.prototype.el = $('[role~="list_view"]');
 
     /**
     Constructor
