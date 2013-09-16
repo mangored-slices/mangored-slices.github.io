@@ -7,7 +7,8 @@ include make/Makefile.imagemagick
 images_path ?= images
 jpeg_quality ?= 80
 
-image_files := $(patsubst %.jpg.png, %.jpg, $(patsubst $(images_path)/%, assets/%, $(shell find $(images_path) -type f)))
+image_src := $(shell find $(images_path) -type f)
+image_files := $(patsubst %.jpg.png, %.jpg, $(patsubst $(images_path)/%, assets/%, $(image_src)))
 
 # Optimize pngs
 assets/%.png: $(images_path)/%.png

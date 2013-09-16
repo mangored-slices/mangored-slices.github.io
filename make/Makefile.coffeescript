@@ -5,6 +5,12 @@
 #
 # Macros:
 #
+#   js_path
+#     The path for the JS source files.
+#
+#   coffee_version
+#     Version of coffee-script to use. Override if needed.
+#
 #   coffee_js_files
 #     A list of the output coffee files.
 #
