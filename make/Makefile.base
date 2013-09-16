@@ -1,0 +1,6 @@
+lint := echo
+
+all: build
+
+lint:
+	$(lint)

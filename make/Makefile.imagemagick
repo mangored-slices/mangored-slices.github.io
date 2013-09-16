@@ -1,0 +1,6 @@
+convert ?= convert
+check_imagemagick = \
+	@which $(convert) >/dev/null || \
+		(echo " ! Error: You need ImageMagick to optimize images." && \
+		 echo "   Try: 'brew install imagemagick'" && \
+		 exit 1)

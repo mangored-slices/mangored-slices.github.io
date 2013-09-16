@@ -1,0 +1,5 @@
+cachebust_files ?= $(shell ls *.html)
+
+cachebust:
+	perl -p -i -e "s/\?v=[0-9]+/?v=`echo $$RANDOM`/" $(cachebust_files)
+

@@ -1,0 +1,26 @@
+# Converts js/%.coffee -> assets/_%.js.
+#
+# Usage:
+#   add $(js_files) to your `build` dependency.
+#
+# Macros:
+#
+#   coffee_js_files
+#     A list of the output coffee files.
+#
+
+js_path ?= js
+coffee_version ?= 1.6.x
+
+coffee_src := $(shell find $(js_path) -type f -name "*.coffee")
+coffee_js_files := $(patsubst %.coffee, %.js, $(patsubst $(js_path)/%, assets/_%, $(js_src)))
+coffee := ./node_modules/.bin/coffee
+
+lint := $(lint); $(coffee) -bcp $(coffee_src) >/dev/null
+
+assets/_%.js: $(js_path)/%.coffee $(coffee)
+	mkdir -p `dirname $@`
+	$(coffee) -bcp $< > $@
+
+$(coffee):
+	npm install coffee-script@$(coffee_version)

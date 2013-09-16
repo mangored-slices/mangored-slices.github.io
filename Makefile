@@ -1,14 +1,17 @@
 # config
 # ------
 
-js_files := $(patsubst %.coffee, %.js, $(patsubst js/%, assets/_%, $(shell find js -type f)))
-image_files := $(patsubst %.jpg.png, %.jpg, $(patsubst images/%, assets/%, $(shell find images -type f)))
-cachebust_files := index.html
+-include make/Makefile.base
+-include make/Makefile.cachebust
+-include make/Makefile.stylus
+-include make/Makefile.coffeescript
+-include make/Makefile.uglifyjs
+-include make/Makefile.images
 
 # manifests
 # ---------
 
-all: \
+build: \
 	$(image_files) \
 	assets/vendor.js \
 	assets/style.css \
@@ -29,44 +32,8 @@ assets/vendor.js: \
 	vendor/moment-2.0.0.js \
 	vendor/nprogress.js \
 	vendor/almond.js
-	cat $^ | $(compress) > $@
+	cat $^ | $(uglify_compress) > $@
 
-assets/app.js: $(js_files)
+assets/app.js: $(coffee_js_files)
 	cat $^ > $@
-
-# filters
-# -------
-
-assets/_%.css: css/%.styl node_modules
-	mkdir -p `dirname $@`
-	$(stylus) -I css -u nib < $< > $@
-
-assets/_%.js: js/%.coffee node_modules
-	mkdir -p `dirname $@`
-	$(coffee) -bcp $< > $@
-
-# Optimize pngs
-assets/%.png: images/%.png
-	$(optipng) -quiet -clobber $< -out $@
-
-# utilities
-# ---------
-
-stylus ?= ./node_modules/.bin/stylus
-stylus ?= ./node_modules/.bin/stylus
-uglify ?= ./node_modules/.bin/uglifyjs
-coffee ?= ./node_modules/.bin/coffee
-optipng ?= optipng
-
-compress ?= $(uglify) -m
-
-node_modules: package.json
-	npm install
-	touch $@
-
-# cachebusting
-# ------------
-
-cachebust:
-	perl -p -i -e "s/\?v=[0-9]+/?v=`echo $$RANDOM`/" $(cachebust_files)
 

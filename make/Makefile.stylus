@@ -1,0 +1,15 @@
+# Converts css/%.styl -> assets/_%.js.
+
+css_path ?= css
+
+stylus ?= ./node_modules/.bin/stylus
+stylus_version ?= 0.37.x
+nib_version ?= 1.0.x
+
+assets/_%.css: $(css_path)/%.styl $(stylus)
+	@mkdir -p `dirname $@`
+	$(stylus) -I $(css_path) -u nib < $< > $@
+
+$(stylus):
+	npm install stylus@$(stylus_version)
+	npm install nib@$(nib_version)
