@@ -13,7 +13,13 @@ define 'view.list', ->
   ###
 
   class ListView extends Backbone.View
-    el: $('[role~="list_view"]')
+    el: $(r 'list_view')
+
+    ###* Entries collection ###
+    entries: null
+
+    ###* Masonry instance ###
+    masonry: null
 
     ###* Constructor
     ###
@@ -24,6 +30,12 @@ define 'view.list', ->
       @listenTo @entries,
         'reset': @reset
         'add':   @add
+
+    render: ->
+      @$el.masonry
+        itemSelector: (r 'entry')
+
+      this
 
     ###* Removes all entries.
     ###
@@ -37,7 +49,11 @@ define 'view.list', ->
 
     add: (entry) =>
       view = new EntryView(entry: entry)
-      @$el.append view.render().el
+
+      @$el
+        .append(view.render().el)
+        .masonry('appended', view.$el)
+        .masonry()
 
     filterBy: (service) =>
       if service
@@ -45,3 +61,5 @@ define 'view.list', ->
         @$(r 'entry').filter(".service-#{service}").show()
       else
         @$(r 'entry').show()
+
+      @$el.masonry()

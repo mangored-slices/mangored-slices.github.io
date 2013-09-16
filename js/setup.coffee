@@ -10,7 +10,7 @@ $ ->
   App.fetcher = new (require 'app.fetcher')
 
 $ ->
-  App.listView = new (require 'view.list')
+  App.listView = new (require 'view.list')().render()
   App.menuView = new (require 'view.menu')
 
   # Fuego!

@@ -423,7 +423,17 @@ define('view.list', function() {
       return _ref;
     }
 
-    ListView.prototype.el = $('[role~="list_view"]');
+    ListView.prototype.el = $(r('list_view'));
+
+    /** Entries collection*/
+
+
+    ListView.prototype.entries = null;
+
+    /** Masonry instance*/
+
+
+    ListView.prototype.masonry = null;
 
     /** Constructor
     */
@@ -435,6 +445,13 @@ define('view.list', function() {
         'reset': this.reset,
         'add': this.add
       });
+    };
+
+    ListView.prototype.render = function() {
+      this.$el.masonry({
+        itemSelector: r('entry')
+      });
+      return this;
     };
 
     /** Removes all entries.
@@ -458,16 +475,17 @@ define('view.list', function() {
       view = new EntryView({
         entry: entry
       });
-      return this.$el.append(view.render().el);
+      return this.$el.append(view.render().el).masonry('appended', view.$el).masonry();
     };
 
     ListView.prototype.filterBy = function(service) {
       if (service) {
         this.$(r('entry')).hide();
-        return this.$(r('entry')).filter(".service-" + service).show();
+        this.$(r('entry')).filter(".service-" + service).show();
       } else {
-        return this.$(r('entry')).show();
+        this.$(r('entry')).show();
       }
+      return this.$el.masonry();
     };
 
     return ListView;
@@ -526,7 +544,7 @@ $(function() {
 });
 
 $(function() {
-  App.listView = new (require('view.list'));
+  App.listView = new (require('view.list'))().render();
   App.menuView = new (require('view.menu'));
   return App.loader.load(App.fetcher.fetch().done(function() {
     return Backbone.history.start();

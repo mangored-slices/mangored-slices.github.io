@@ -29,7 +29,7 @@ assets/vendor.js: \
 	vendor/moment-2.0.0.js \
 	vendor/nprogress.js \
 	vendor/jquery.fillsize.js \
-	vendor/masonry-2.1.08.js \
+	vendor/masonry.js \
 	vendor/almond.js
 	cat $^ | $(uglify) -m > $@
 
