@@ -485,7 +485,15 @@ define('view.list', function() {
       } else {
         this.$(r('entry')).show();
       }
-      return this.$el.masonry();
+      return this.relayout();
+    };
+
+    /** Update layouts*/
+
+
+    ListView.prototype.relayout = function() {
+      this.$el.masonry();
+      return this.$el.trigger('fillsize');
     };
 
     return ListView;

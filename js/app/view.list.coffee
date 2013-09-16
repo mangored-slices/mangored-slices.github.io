@@ -62,4 +62,9 @@ define 'view.list', ->
       else
         @$(r 'entry').show()
 
+      @relayout()
+
+    ###* Update layouts ###
+    relayout: ->
       @$el.masonry()
+      @$el.trigger('fillsize')
