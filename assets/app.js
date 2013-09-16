@@ -232,12 +232,20 @@ define('router.app', function() {
     }
 
     AppRouter.prototype.routes = {
-      '': 'home'
+      '': 'home',
+      'on/:service': 'service',
+      'entry/:cid': 'entry'
     };
 
     AppRouter.prototype.home = function() {
       return console.log("[AppRouter] home");
     };
+
+    AppRouter.prototype.service = function(service) {
+      return console.log("[AppRouter] Service");
+    };
+
+    AppRouter.prototype.entry = function(cid) {};
 
     return AppRouter;
 

@@ -31,11 +31,79 @@ body
 // ------
 
 .main-heading
+  clearfix()
+
   .logo
     font-size: 3em
     text-transform: uppercase
 
-  margin-bottom: 20px
+  margin-bottom: 50px
+
+  .logo, .menu
+    float: left
+    margin-right: 20px
+
+    height: 30px
+    line-height: 30px
+
+.menu
+  clearfix()
+  -webkit-backface-visibility: hidden
+
+  a
+    float: left
+    margin-right: 0
+
+    color: white
+    text-decoration: none
+    white-text-shadow()
+
+    display: block
+
+    position: relative
+    text-align: center
+
+    width: 7px
+    transition: width 300ms ease
+
+  a i
+    display: block
+
+    position: absolute
+    top: 0
+    left: 0
+    right: 4px
+    bottom: 0
+    z-index: 1
+
+    background: $red
+    transform: skew(-30deg)
+
+  a.link-flickr i
+    background: $flickr-bg
+  a.link-instagram i
+    background: $instagram-bg
+  a.link-twitter i
+    background: $twitter-bg
+  a.link-tumblr i
+    background: $tumblr-bg
+
+  span
+    position: relative
+    z-index: 2
+    padding: 0
+    opacity: 0
+
+    font-weight: bold
+    font-size: 0.9em
+    transition: opacity 50ms linear
+
+  a:hover
+    width: 100px
+
+    span
+      opacity: 1
+      transition: opacity 50ms linear 130ms
 
 // Entry listing
 // -------------

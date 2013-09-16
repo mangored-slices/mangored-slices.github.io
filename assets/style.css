@@ -160,11 +160,110 @@ body {
   }
 }
 .main-heading {
-  margin-bottom: 20px;
+  zoom: 1;
+  margin-bottom: 50px;
+}
+.main-heading:before,
+.main-heading:after {
+  content: "";
+  display: table;
+}
+.main-heading:after {
+  clear: both;
 }
 .main-heading .logo {
   font-size: 3em;
   text-transform: uppercase;
+}
+.main-heading .logo,
+.main-heading .menu {
+  float: left;
+  margin-right: 20px;
+  height: 30px;
+  line-height: 30px;
+}
+.menu {
+  zoom: 1;
+  -webkit-backface-visibility: hidden;
+}
+.menu:before,
+.menu:after {
+  content: "";
+  display: table;
+}
+.menu:after {
+  clear: both;
+}
+.menu a {
+  float: left;
+  margin-right: 0;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  display: block;
+  position: relative;
+  text-align: center;
+  width: 7px;
+  -webkit-transition: width 300ms ease;
+  -moz-transition: width 300ms ease;
+  -o-transition: width 300ms ease;
+  -ms-transition: width 300ms ease;
+  transition: width 300ms ease;
+}
+.menu a i {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 4px;
+  bottom: 0;
+  z-index: 1;
+  background: #b53c39;
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+.menu a.link-flickr i {
+  background: #dd8b45;
+}
+.menu a.link-instagram i {
+  background: #b53c39;
+}
+.menu a.link-twitter i {
+  background: #efd73c;
+}
+.menu a.link-tumblr i {
+  background: #d6ce45;
+}
+.menu span {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  font-weight: bold;
+  font-size: 0.9em;
+  -webkit-transition: opacity 50ms linear;
+  -moz-transition: opacity 50ms linear;
+  -o-transition: opacity 50ms linear;
+  -ms-transition: opacity 50ms linear;
+  transition: opacity 50ms linear;
+}
+.menu a:hover {
+  width: 100px;
+}
+.menu a:hover span {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 50ms linear 130ms;
+  -moz-transition: opacity 50ms linear 130ms;
+  -o-transition: opacity 50ms linear 130ms;
+  -ms-transition: opacity 50ms linear 130ms;
+  transition: opacity 50ms linear 130ms;
 }
 .body {
   margin: 0 auto;
