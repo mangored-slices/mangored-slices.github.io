@@ -6,10 +6,12 @@ define 'router.app', ->
       'entry/:cid': 'entry'
 
     home: ->
-      console.log("[AppRouter] home")
+      App.menuView.activate null
+      App.listView.filterBy null
 
     service: (service) ->
-      console.log("[AppRouter] Service")
+      App.menuView.activate service
+      App.listView.filterBy service
 
     entry: (cid) ->
       # ...

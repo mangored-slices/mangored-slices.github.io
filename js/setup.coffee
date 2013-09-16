@@ -11,6 +11,7 @@ $ ->
 
 $ ->
   App.listView = new (require 'view.list')
+  App.menuView = new (require 'view.menu')
 
   # Fuego!
   App.loader.load(

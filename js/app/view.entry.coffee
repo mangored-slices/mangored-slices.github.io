@@ -31,6 +31,7 @@ define 'view.entry', ->
     ###* Renders common entries
     ###
     renderCommon: ->
+      @$el.attr 'role', 'entry'
       @$(r 'text').html @entry.get('text')
       @$(r 'date').html @entry.date('long')
       @$(r 'date_ago').html @entry.date('ago')
