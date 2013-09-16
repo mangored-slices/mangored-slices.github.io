@@ -137,6 +137,29 @@ define('model.entry', function() {
       return _ref;
     }
 
+    /**
+      entry.dateAgo()   #=> "a few seconds ago"
+    */
+
+
+    Entry.prototype.dateAgo = function() {
+      return moment(this.get('date')).fromNow();
+    };
+
+    /**
+      entry.typeClass()   #=> "text" / "image"
+    */
+
+
+    Entry.prototype.typeClass = function() {
+      var _ref1;
+      if (((_ref1 = this.get('image')) != null ? _ref1.length : void 0) > 0) {
+        return 'image';
+      } else {
+        return 'text';
+      }
+    };
+
     return Entry;
 
   })(Backbone.Model);
@@ -208,7 +231,10 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define('view.entry', function() {
-  var EntryView, _ref;
+  var EntryView, r, _ref;
+  r = function(role) {
+    return "[role~='" + role + "']";
+  };
   return EntryView = (function(_super) {
     __extends(EntryView, _super);
 
@@ -218,11 +244,30 @@ define('view.entry', function() {
     }
 
     EntryView.prototype.render = function() {
-      var entry;
+      var entry, klass;
       entry = this.options.entry;
-      this.$el.html("Entry: " + (entry.get('text')));
+      this.$el.html(this.template);
+      klass = entry.typeClass();
+      this.renderCommon(entry, klass);
+      if (klass === 'image') {
+        this.renderImage(entry);
+      }
       return this;
     };
+
+    EntryView.prototype.renderCommon = function(entry, klass) {
+      this.$el.addClass("entry-" + klass);
+      this.$(r('text')).html(entry.get('text'));
+      return this.$(r('date_ago')).html(entry.dateAgo());
+    };
+
+    EntryView.prototype.renderImage = function(entry) {
+      return this.$(r('image')).append($("<img>").attr({
+        src: entry.get('image')
+      }));
+    };
+
+    EntryView.prototype.template = "<div class='image' role='image'>\n</div>\n<div class='text' role='text'></div>\n<div class='date' role='date_ago'></div>";
 
     return EntryView;
 

@@ -16,6 +16,21 @@ define 'model.entry', ->
 
   class Entry extends Backbone.Model
 
+    ###*
+      entry.dateAgo()   #=> "a few seconds ago"
+    ###
+
+    dateAgo: ->
+      moment(@get('date')).fromNow()
+    ###*
+      entry.typeClass()   #=> "text" / "image"
+    ###
+    typeClass: ->
+      if @get('image')?.length > 0
+        'image'
+      else
+        'text'
+
 # -----
 define 'collection.entries', ->
   class Entries extends Backbone.Collection
