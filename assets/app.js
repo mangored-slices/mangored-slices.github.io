@@ -357,7 +357,7 @@ define('view.entry', function() {
           return [1, 2];
         } else if (this.entry.isHorizontal()) {
           return [2, 1];
-        } else if (Math.random() > 0.3) {
+        } else if (Math.random() < 0.4) {
           return [2, 2];
         } else {
           return [1, 1];

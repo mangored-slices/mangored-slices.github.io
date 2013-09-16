@@ -51,7 +51,7 @@ define 'view.entry', ->
           [1, 2]
         else if @entry.isHorizontal()
           [2, 1]
-        else if Math.random() > 0.3
+        else if Math.random() < 0.4
           [2, 2]
         else
           [1, 1]
