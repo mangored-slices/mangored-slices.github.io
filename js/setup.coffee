@@ -4,6 +4,7 @@ $ ->
   Data.accounts  = new (require 'collection.accounts')
 
   App  = window.App = {}
+  App.nav     = (url) -> Backbone.history.navigate url, trigger: true
   App.config  = (require 'app.config')
   App.loader  = new (require 'app.loader')
   App.router  = new (require 'router.app')

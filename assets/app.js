@@ -545,6 +545,11 @@ $(function() {
   Data.entries = new (require('collection.entries'));
   Data.accounts = new (require('collection.accounts'));
   App = window.App = {};
+  App.nav = function(url) {
+    return Backbone.history.navigate(url, {
+      trigger: true
+    });
+  };
   App.config = require('app.config');
   App.loader = new (require('app.loader'));
   App.router = new (require('router.app'));
