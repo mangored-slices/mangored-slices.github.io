@@ -1,13 +1,15 @@
 # config
 # ------
 
-js_files := $(patsubst %.coffee, %.js, $(patsubst js/%, assets/_%, $(shell ls js/*)))
+js_files := $(patsubst %.coffee, %.js, $(patsubst js/%, assets/_%, $(shell find js -type f)))
+image_files := $(patsubst %.jpg.png, %.jpg, $(patsubst images/%, assets/%, $(shell find images -type f)))
 cachebust_files := index.html
 
 # manifests
 # ---------
 
 all: \
+	$(image_files) \
 	assets/vendor.js \
 	assets/style.css \
 	assets/app.js
@@ -36,10 +38,16 @@ assets/app.js: $(js_files)
 # -------
 
 assets/_%.css: css/%.styl node_modules
+	mkdir -p `dirname $@`
 	$(stylus) -I css -u nib < $< > $@
 
 assets/_%.js: js/%.coffee node_modules
+	mkdir -p `dirname $@`
 	$(coffee) -bcp $< > $@
+
+# Optimize pngs
+assets/%.png: images/%.png
+	$(optipng) -quiet -clobber $< -out $@
 
 # utilities
 # ---------
@@ -48,6 +56,8 @@ stylus ?= ./node_modules/.bin/stylus
 stylus ?= ./node_modules/.bin/stylus
 uglify ?= ./node_modules/.bin/uglifyjs
 coffee ?= ./node_modules/.bin/coffee
+optipng ?= optipng
+
 compress ?= $(uglify) -m
 
 node_modules: package.json
