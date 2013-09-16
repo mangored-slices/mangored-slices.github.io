@@ -39,14 +39,32 @@ body
       float: left
 
       &, .image
-        width: 250px
-        height: 250px
+        width: $cell
+        height: $cell
+
+      // Custom sizes
+      &.w2
+        &, .image
+          width: ($cell * 2 + $gut * 1)
+      &.h2
+        &, .image
+          height: ($cell * 2 + $gut * 1)
+      &.w3
+        &, .image
+          width: ($cell * 3 + $gut * 2)
+      &.h3
+        &, .image
+          height: ($cell * 3 + $gut * 2)
 
 // Entry item
 // ----------
 
 .entry-item
-  margin: 0 40px 40px 0
+  &
+    margin: 0 0 10px 0
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    margin: 0 $gut $gut 0
 
   position: relative
 
@@ -113,11 +131,11 @@ body
     line-height: 1.10
 
   .meta .date-ago:before
-    small-hr(15px)
+    small-hr(15px, white)
 
   &:hover
     .meta
-      transform: scale(1.05) translate3d(0,0,0)
+      transform: scale(1.0) translate3d(0,0,0)
       opacity: 1
 
 
@@ -125,11 +143,17 @@ body
 // ------------
 
 .entry-text
+  a.link
+    display: none
+
   .image
     display: none
 
   .text
     font-size: 1.3em
+
+  .date:after
+    small-hr(15px, $red)
 
   .date-ago
     display: none

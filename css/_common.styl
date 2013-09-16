@@ -10,14 +10,17 @@ $lime = d6ce45
 $hover-strength = 0.95
 $spd = 100ms
 
+$cell = 250px
+$gut  = 40px
+
 body-type()
   font-family: $kepler
   font-weight: 400
 
-small-hr($size)
+small-hr($size, $color)
   display: block
   content: ''
   width: $size
   height: 1px
-  background: rgba(white, 0.7)
+  background: $color
   margin: 10px 0

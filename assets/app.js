@@ -162,6 +162,26 @@ define('model.entry', function() {
       }
     };
 
+    Entry.prototype.isImage = function() {
+      return this.typeClass() === 'image';
+    };
+
+    Entry.prototype.isText = function() {
+      return this.typeClass() === 'text';
+    };
+
+    Entry.prototype.isVertical = function() {
+      return this.ratio() < 0.8;
+    };
+
+    Entry.prototype.isHorizontal = function() {
+      return this.ratio() > 1.2;
+    };
+
+    Entry.prototype.ratio = function() {
+      return this.get('image_ratio') || 1;
+    };
+
     /**
        date('ago')       #=> "3 days ago"
        date('long')      #=> September 16th, 2013
@@ -244,19 +264,21 @@ define('view.entry', function() {
 
     EntryView.prototype.className = 'entry-item';
 
+    EntryView.prototype.initialize = function() {
+      return this.entry = this.options.entry;
+    };
+
     /** Renders the element
     */
 
 
     EntryView.prototype.render = function() {
-      var entry, klass;
-      entry = this.options.entry;
       this.$el.html(this.template);
-      klass = entry.typeClass();
-      this.renderClasses(entry, klass);
-      this.renderCommon(entry);
-      if (klass === 'image') {
-        this.renderImage(entry);
+      this.renderClasses();
+      this.renderCommon();
+      this.renderSize();
+      if (this.entry.isImage()) {
+        this.renderImage();
       }
       return this;
     };
@@ -265,28 +287,58 @@ define('view.entry', function() {
     */
 
 
-    EntryView.prototype.renderClasses = function(entry, klass) {
-      this.$el.addClass("entry-" + klass);
-      return this.$el.addClass("service-" + (entry.source().name));
+    EntryView.prototype.renderClasses = function() {
+      this.$el.addClass("entry-" + (this.entry.typeClass()));
+      return this.$el.addClass("service-" + (this.entry.source().name));
     };
 
     /** Renders common entries
     */
 
 
-    EntryView.prototype.renderCommon = function(entry) {
-      this.$(r('text')).html(entry.get('text'));
-      this.$(r('date')).html(entry.date('long'));
-      return this.$(r('date_ago')).html(entry.date('ago'));
+    EntryView.prototype.renderCommon = function() {
+      this.$(r('text')).html(this.entry.get('text'));
+      this.$(r('date')).html(this.entry.date('long'));
+      return this.$(r('date_ago')).html(this.entry.date('ago'));
+    };
+
+    /** Updates size classes (.w-1.h-2)
+    */
+
+
+    EntryView.prototype.renderSize = function() {
+      var h, w, _ref1;
+      _ref1 = this.getSize(), w = _ref1[0], h = _ref1[1];
+      return this.$el.addClass("w-" + w + " h-" + h);
+    };
+
+    /** Returns grid size as a tuple (`[1, 3]` for 1x3)
+    */
+
+
+    EntryView.prototype.getSize = function() {
+      if (this.entry.isImage()) {
+        if (this.entry.isVertical()) {
+          return [1, 2];
+        } else if (this.entry.isHorizontal()) {
+          return [2, 1];
+        } else if (Math.random() > 0.3) {
+          return [2, 2];
+        } else {
+          return [1, 1];
+        }
+      } else {
+        return [1, 1];
+      }
     };
 
     /** Renders an image type
     */
 
 
-    EntryView.prototype.renderImage = function(entry) {
+    EntryView.prototype.renderImage = function() {
       return this.$(r('image')).append($("<img>").attr({
-        src: entry.get('image')
+        src: this.entry.get('image')
       }));
     };
 

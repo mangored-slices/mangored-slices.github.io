@@ -35,6 +35,14 @@ define 'model.entry', ->
       else
         'text'
 
+    isImage:  -> @typeClass() is 'image'
+    isText:   -> @typeClass() is 'text'
+
+    isVertical:   -> @ratio() < 0.8
+    isHorizontal: -> @ratio() > 1.2
+
+    ratio: -> @get('image_ratio') or 1
+
     ###*
        date('ago')       #=> "3 days ago"
        date('long')      #=> September 16th, 2013

@@ -180,10 +180,33 @@ body {
     width: 250px;
     height: 250px;
   }
+  .entry-list .entry-item.w2,
+  .entry-list .entry-item.w2 .image {
+    width: 540px;
+  }
+  .entry-list .entry-item.h2,
+  .entry-list .entry-item.h2 .image {
+    height: 540px;
+  }
+  .entry-list .entry-item.w3,
+  .entry-list .entry-item.w3 .image {
+    width: 830px;
+  }
+  .entry-list .entry-item.h3,
+  .entry-list .entry-item.h3 .image {
+    height: 830px;
+  }
 }
 .entry-item {
-  margin: 0 40px 40px 0;
   position: relative;
+}
+.entry-item {
+  margin: 0 0 10px 0;
+}
+@media (min-width: 480px) /* Tablet & Desktop */ {
+  .entry-item {
+    margin: 0 40px 40px 0;
+  }
 }
 .entry-item .image,
 .entry-item .meta {
@@ -235,11 +258,11 @@ body {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  -webkit-transition: all $spd ease;
-  -moz-transition: all $spd ease;
-  -o-transition: all $spd ease;
-  -ms-transition: all $spd ease;
-  transition: all $spd ease;
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  -ms-transition: all 100ms ease;
+  transition: all 100ms ease;
   -webkit-transform: scale(0.95) translate3d(0, 0, 0);
   -moz-transform: scale(0.95) translate3d(0, 0, 0);
   -o-transform: scale(0.95) translate3d(0, 0, 0);
@@ -264,24 +287,35 @@ body {
   content: '';
   width: 15px;
   height: 1px;
-  background: rgba(255,255,255,0.7);
+  background: #fff;
   margin: 10px 0;
 }
 .entry-image:hover .meta {
-  -webkit-transform: scale(1.05) translate3d(0, 0, 0);
-  -moz-transform: scale(1.05) translate3d(0, 0, 0);
-  -o-transform: scale(1.05) translate3d(0, 0, 0);
-  -ms-transform: scale(1.05) translate3d(0, 0, 0);
-  transform: scale(1.05) translate3d(0, 0, 0);
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
   opacity: 1;
   -ms-filter: none;
   filter: none;
+}
+.entry-text a.link {
+  display: none;
 }
 .entry-text .image {
   display: none;
 }
 .entry-text .text {
   font-size: 1.3em;
+}
+.entry-text .date:after {
+  display: block;
+  content: '';
+  width: 15px;
+  height: 1px;
+  background: #b53c39;
+  margin: 10px 0;
 }
 .entry-text .date-ago {
   display: none;
