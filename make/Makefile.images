@@ -1,26 +1,27 @@
 # Optimizes images/%.png to assets/%.png.
 # Uses `optipng`.
 
--include Makefile.optipng
--include Makefile.imagemagick
+include make/Makefile.optipng
+include make/Makefile.imagemagick
 
-images_path ?= images/
-image_files ?= $(patsubst %.jpg.png, %.jpg, $(patsubst $(images_path)/%, assets/%, $(shell find $(images_path) -type f)))
+images_path ?= images
 jpeg_quality ?= 80
 
+image_files := $(patsubst %.jpg.png, %.jpg, $(patsubst $(images_path)/%, assets/%, $(shell find $(images_path) -type f)))
+
 # Optimize pngs
-assets/%.png: $(images)/%.png
+assets/%.png: $(images_path)/%.png
 	@mkdir -p `dirname $@`
 	$(optipng) -quiet -clobber $< -out $@
 
 # Strip exif info
-assets/%.jpg: images/%.jpg
+assets/%.jpg: $(images_path)/%.jpg
 	$(check_imagemagick)
 	@mkdir -p `dirname $@`
 	$(convert) $< -strip $@
 
 # Convert .jpg.png to .jpg
-assets/%.jpg: images/%.jpg.png
+assets/%.jpg: $(images_path)/%.jpg.png
 	$(check_imagemagick)
 	@mkdir -p `dirname $@`
 	$(convert) $< -quality $(jpeg_quality) -strip -interlace plane $@

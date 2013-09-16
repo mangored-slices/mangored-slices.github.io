@@ -1,17 +1,13 @@
-# config
-# ------
+all: assets
 
--include make/Makefile.base
--include make/Makefile.cachebust
--include make/Makefile.stylus
--include make/Makefile.coffeescript
--include make/Makefile.uglifyjs
--include make/Makefile.images
+include make/Makefile.base
+include make/Makefile.cachebust
+include make/Makefile.stylus
+include make/Makefile.coffeescript
+include make/Makefile.uglifyjs
+include make/Makefile.images
 
-# manifests
-# ---------
-
-build: \
+assets: \
 	$(image_files) \
 	assets/vendor.js \
 	assets/style.css \

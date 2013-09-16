@@ -1,5 +1,6 @@
 optipng ?= optipng
-check_optipng = \
+
+check_optipng := \
 	@which $(optipng) >/dev/null || \
 		(echo " ! Error: You need Optipng to process .png files." && \
 		 echo "   Try: 'brew install optipng'" && \
