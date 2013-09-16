@@ -39,7 +39,7 @@ assets/_%.css: css/%.styl node_modules
 	$(stylus) -I css -u nib < $< > $@
 
 assets/_%.js: js/%.coffee node_modules
-	$(coffee) -cp $< > $@
+	$(coffee) -bcp $< > $@
 
 # utilities
 # ---------

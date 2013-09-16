@@ -4,10 +4,11 @@ define 'app.fetcher', ->
       @url = App.config.feedUrl
       @entries = Data.entries
 
+    ###*
+    * Starts fetching.
+    * Returns a Promise object.
     ###
-    Starts fetching.
-    Returns a Promise object.
-    ###
+
     fetch: ->
       $.get("#{@url}/feed.json")
       .then (data) ->

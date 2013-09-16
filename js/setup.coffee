@@ -5,10 +5,12 @@ $ ->
 
   App  = window.App = {}
   App.config  = (require 'app.config')
+  App.loader  = new (require 'app.loader')
   App.router  = new (require 'router.app')
   App.fetcher = new (require 'app.fetcher')
 
   # Fuego!
+  App.loader.load
   App.fetcher.fetch()
   .done ->
     console.log("[History] start")
