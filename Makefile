@@ -4,6 +4,9 @@
 js_files := $(patsubst %.coffee, %.js, $(patsubst js/%, assets/_%, $(shell ls js/*)))
 cachebust_files := index.html
 
+# manifests
+# ---------
+
 all: \
 	assets/vendor.js \
 	assets/style.css \
@@ -18,7 +21,8 @@ assets/vendor.js: \
 	vendor/respond-1.1.0.js \
 	vendor/jquery-2.0.2.js \
 	vendor/underscore-1.4.4.js \
-	vendor/backbone-1.0.0.js
+	vendor/backbone-1.0.0.js \
+	vendor/almond.js
 	cat $^ | $(compress) > $@
 
 assets/app.js: $(js_files)
