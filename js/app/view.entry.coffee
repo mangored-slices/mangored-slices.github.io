@@ -39,7 +39,7 @@ define 'view.entry', ->
     ###
     renderSize: ->
       [w, h] = @getSize()
-      @$el.addClass "w-#{w} h-#{h}"
+      @$el.addClass "w#{w} h#{h}"
 
     ###* Returns grid size as a tuple (`[1, 3]` for 1x3)
     ###

@@ -22,19 +22,43 @@ body
     padding: 10px
 
   @media (min-width: 480px) /* Tablet & Desktop */
-    padding: 30px
+    padding: 30px 10px
 
   @media (min-width: 768px) /* Desktop */
-    padding: 50px
+    padding: 50px 10px
+
+// Header
+// ------
+
+.main-heading
+  .logo
+    font-size: 3em
+    text-transform: uppercase
+
+  margin-bottom: 20px
 
 // Entry listing
 // -------------
 
+.body
+  margin: 0 auto
+
+  @media (min-width: 480px)
+    width: ($cell * 2 + $gut * 1)
+  @media (min-width: 798px)
+    width: ($cell * 3 + $gut * 2)
+  @media (min-width: 1024px)
+    width: ($cell * 4 + $gut * 3)
+  @media (min-width: 1260px)
+    width: ($cell * 5 + $gut * 4)
+
 .entry-list
-  border: solid 1px #eee
   clearfix()
 
   @media (min-width: 480px) /* Tablet & Desktop */
+    &
+      margin-right: (-1 * $gut)
+
     .entry-item
       float: left
 
@@ -67,6 +91,9 @@ body
     margin: 0 $gut $gut 0
 
   position: relative
+
+  .image
+    background: grey
 
   .image, .meta
     overflow: hidden

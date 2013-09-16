@@ -309,7 +309,7 @@ define('view.entry', function() {
     EntryView.prototype.renderSize = function() {
       var h, w, _ref1;
       _ref1 = this.getSize(), w = _ref1[0], h = _ref1[1];
-      return this.$el.addClass("w-" + w + " h-" + h);
+      return this.$el.addClass("w" + w + " h" + h);
     };
 
     /** Returns grid size as a tuple (`[1, 3]` for 1x3)
