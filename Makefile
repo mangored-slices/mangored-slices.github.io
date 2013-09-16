@@ -14,7 +14,8 @@ all: \
 
 assets/style.css: \
 	assets/_reset.css \
-	assets/_base.css
+	assets/_base.css \
+	css/nprogress.css
 	cat $^ > $@
 
 assets/vendor.js: \
@@ -22,6 +23,7 @@ assets/vendor.js: \
 	vendor/jquery-2.0.2.js \
 	vendor/underscore-1.4.4.js \
 	vendor/backbone-1.0.0.js \
+	vendor/nprogress.js \
 	vendor/almond.js
 	cat $^ | $(compress) > $@
 
