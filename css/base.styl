@@ -151,11 +151,11 @@ html.wf-active .body
 
   @media (min-width: 480px)
     width: ($cell * 2 + $gut * 1)
-  @media (min-width: 798px)
+  @media (min-width: 768px)
     width: ($cell * 3 + $gut * 2)
   @media (min-width: 1024px)
     width: ($cell * 4 + $gut * 3)
-  @media (min-width: 1260px)
+  @media (min-width: 1280px)
     width: ($cell * 5 + $gut * 4)
 
 .entry-list
@@ -173,18 +173,19 @@ html.wf-active .body
         height: $cell
 
       // Custom sizes
-      &.w2
-        &, .image
-          width: ($cell * 2 + $gut * 1)
-      &.h2
-        &, .image
-          height: ($cell * 2 + $gut * 1)
-      &.w3
-        &, .image
-          width: ($cell * 3 + $gut * 2)
-      &.h3
-        &, .image
-          height: ($cell * 3 + $gut * 2)
+      @media (min-width: 768px)
+        &.w2
+          &, .image
+            width: ($cell * 2 + $gut * 1)
+        &.h2
+          &, .image
+            height: ($cell * 2 + $gut * 1)
+        &.w3
+          &, .image
+            width: ($cell * 3 + $gut * 2)
+        &.h3
+          &, .image
+            height: ($cell * 3 + $gut * 2)
 
 /* ----------------------------------------------------------------------------
  * Entry item
