@@ -29,8 +29,9 @@ assets/vendor.js: \
 	vendor/backbone-1.0.0.js \
 	vendor/moment-2.0.0.js \
 	vendor/nprogress.js \
+	vendor/jquery.fillsize.js \
 	vendor/almond.js
-	cat $^ | $(uglify_compress) > $@
+	cat $^ | $(uglify) -m > $@
 
 assets/app.js: $(coffee_js_files)
 	cat $^ > $@

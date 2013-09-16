@@ -337,9 +337,14 @@ define('view.entry', function() {
 
 
     EntryView.prototype.renderImage = function() {
-      return this.$(r('image')).append($("<img>").attr({
-        src: this.entry.get('image')
-      }));
+      var src;
+      src = this.entry.get('image');
+      if (src) {
+        this.$(r('image')).append($("<img>").attr({
+          src: src
+        }));
+        return this.$(r('image')).fillsize("> img");
+      }
     };
 
     /** HTML template

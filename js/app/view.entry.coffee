@@ -59,7 +59,10 @@ define 'view.entry', ->
     ###* Renders an image type
     ###
     renderImage: ->
-      @$(r 'image').append $("<img>").attr(src: @entry.get('image'))
+      src = @entry.get('image')
+      if src
+        @$(r 'image').append $("<img>").attr(src: src)
+        @$(r 'image').fillsize("> img")
 
     ###* HTML template
     ###

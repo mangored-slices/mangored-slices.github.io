@@ -246,6 +246,7 @@ body {
 .entry-item .image,
 .entry-item .meta {
   overflow: hidden;
+  word-wrap: break-word;
 }
 .entry-item,
 .entry-item .image,
@@ -283,11 +284,6 @@ body {
 }
 .entry-image .image {
   background: #333;
-}
-.entry-image .image img {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 .entry-image .meta {
   opacity: 0;
