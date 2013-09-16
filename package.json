@@ -1,0 +1,15 @@
+{
+  "name": "slices-site",
+  "description": "",
+  "keywords": [
+    ""
+  ],
+  "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
+  "version": "0.1.0",
+  "devDependencies": {
+    "coffee-script": "1.6.x",
+    "stylus": "0.37.x",
+    "nib": "1.0.x",
+    "uglify-js": "2.4.x"
+  }
+}

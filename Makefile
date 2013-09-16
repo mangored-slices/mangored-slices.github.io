@@ -1,0 +1,53 @@
+all: \
+	assets/vendor.js \
+	assets/style.css \
+	assets/app.js
+
+assets/style.css: \
+	assets/_reset.css \
+	assets/_base.css
+	cat $^ > $@
+
+assets/vendor.js: \
+	vendor/jquery-2.0.2.js \
+	vendor/underscore-1.4.4.js \
+	vendor/backbone-1.0.0.js
+	cat $^ | $(compress) > $@
+
+assets/app.js: $(js_files)
+	cat $^ > $@
+
+# config
+# ------
+
+js_files ?= $(patsubst %.coffee, %.js, $(patsubst js/%, assets/_%, $(shell ls js/*)))
+cachebust_files ?= index.html
+
+# filters
+# -------
+
+assets/_%.css: css/%.styl node_modules
+	$(stylus) -I css -u nib < $< > $@
+
+assets/_%.js: js/%.coffee node_modules
+	$(coffee) -cp $< > $@
+
+# utilities
+# ---------
+
+stylus ?= ./node_modules/.bin/stylus
+stylus ?= ./node_modules/.bin/stylus
+uglify ?= ./node_modules/.bin/uglifyjs
+coffee ?= ./node_modules/.bin/coffee
+compress ?= $(uglify) -m
+
+node_modules: package.json
+	npm install
+	touch $@
+
+# cachebusting
+# ------------
+
+cachebust:
+	perl -p -i -e "s/\?v=[0-9]+/?v=`echo $$RANDOM`/" $(cachebust_files)
+
