@@ -147,6 +147,17 @@ define('model.entry', function() {
     };
 
     /**
+      entry.source()
+      entry.source().name
+      entry.source().service
+    */
+
+
+    Entry.prototype.source = function() {
+      return this.get('source');
+    };
+
+    /**
       entry.typeClass()   #=> "text" / "image"
     */
 
@@ -257,6 +268,7 @@ define('view.entry', function() {
 
     EntryView.prototype.renderCommon = function(entry, klass) {
       this.$el.addClass("entry-" + klass);
+      this.$el.addClass("service-" + (entry.source().name));
       this.$(r('text')).html(entry.get('text'));
       return this.$(r('date_ago')).html(entry.dateAgo());
     };

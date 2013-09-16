@@ -22,9 +22,20 @@ define 'model.entry', ->
 
     dateAgo: ->
       moment(@get('date')).fromNow()
+
+    ###*
+      entry.source()
+      entry.source().name
+      entry.source().service
+    ###
+
+    source: ->
+      @get('source')
+
     ###*
       entry.typeClass()   #=> "text" / "image"
     ###
+
     typeClass: ->
       if @get('image')?.length > 0
         'image'

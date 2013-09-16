@@ -14,6 +14,7 @@ define 'view.entry', ->
 
     renderCommon: (entry, klass) ->
       @$el.addClass "entry-#{klass}"
+      @$el.addClass "service-#{entry.source().name}"
       @$(r 'text').html entry.get('text')
       @$(r 'date_ago').html entry.dateAgo()
 

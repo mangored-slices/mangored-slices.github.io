@@ -138,7 +138,8 @@ input,
 td,
 textarea {
   line-height: 1.5;
-  font-family: sans-serif;
+  font-family: kepler-std-display, sans-serif;
+  font-weight: 400;
   color: #9aa;
 }
 * {
