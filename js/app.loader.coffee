@@ -6,7 +6,7 @@ define 'app.loader', ->
   class Loader
 
     constructor: ->
-      NProgress.configure speed: 100
+      NProgress.configure speed: 80
 
     ###*
     Loader.
@@ -18,3 +18,6 @@ define 'app.loader', ->
     load: (promise) ->
       NProgress.start()
       promise.always => NProgress.done()
+
+    ping: ->
+      NProgress.done(true)

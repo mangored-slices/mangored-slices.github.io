@@ -10,7 +10,10 @@ $ ->
   App.fetcher = new (require 'app.fetcher')
 
 $ ->
+  App.listView = new (require 'view.list')
+
   # Fuego!
-  App.loader.load
+  App.loader.load(
     App.fetcher.fetch()
     .done -> Backbone.history.start()
+  )
