@@ -21,6 +21,7 @@ assets/style.css: \
 assets/vendor.js: \
 	vendor/jquery-2.0.2.js \
 	vendor/respond-1.1.0.js \
+	vendor/q-0.9.2.js \
 	vendor/underscore-1.4.4.js \
 	vendor/backbone-1.0.0.js \
 	vendor/moment-2.0.0.js \
