@@ -309,6 +309,18 @@ body {
   color: #fff;
   text-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
+.entry-image.service-flickr .meta {
+  background: rgba(221,139,69,0.95);
+}
+.entry-image.service-instagram .meta {
+  background: rgba(181,60,57,0.95);
+}
+.entry-image.service-twitter .meta {
+  background: rgba(239,215,60,0.95);
+}
+.entry-image.service-tumblr .meta {
+  background: rgba(214,206,69,0.95);
+}
 .entry-image .meta .text {
   font-size: 1.3em;
   line-height: 1.1;
