@@ -186,6 +186,10 @@ define('model.entry', function() {
       return this.cid;
     };
 
+    Entry.prototype.toString = function() {
+      return this.get('text') || 'Entry';
+    };
+
     /**
        date('ago')       #=> "3 days ago"
        date('long')      #=> September 16th, 2013
@@ -249,12 +253,16 @@ define('router.app', function() {
 
     AppRouter.prototype.home = function() {
       App.loader.ping();
+      this.title(null);
+      this.klass("home");
       App.menuView.activate(null);
       return App.listView.filterBy(null);
     };
 
     AppRouter.prototype.service = function(service) {
       App.loader.ping();
+      this.title(service);
+      this.klass("service-" + service);
       App.menuView.activate(service);
       return App.listView.filterBy(service);
     };
@@ -263,11 +271,38 @@ define('router.app', function() {
       var entry;
       App.loader.ping();
       entry = Data.entries.findBySlug(slug);
+      this.title(entry.toString());
+      this.klass("service-" + (entry.source().name));
       if (entry) {
         return console.log("Load", entry.get('text'));
       } else {
         return alert("Unknown entry");
       }
+    };
+
+    /*
+    # Changes the body class name.
+    */
+
+
+    AppRouter.prototype.klass = function(str) {
+      return $('body').attr({
+        "class": str
+      });
+    };
+
+    /*
+    # Changes title.
+    */
+
+
+    AppRouter.prototype.title = function(str) {
+      if (str) {
+        str = "" + str + " &mdash; MangoRed Slices";
+      } else {
+        str = "MangoRed Slices";
+      }
+      return $('title').html(str);
     };
 
     return AppRouter;
