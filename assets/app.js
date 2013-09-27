@@ -675,7 +675,7 @@ define('view.title', function() {
     TitleView.prototype.render = function() {
       $(window).on('resize.titleview', this.update);
       this.update();
-      this.monitor = this.getMonitor();
+      this.getMonitor();
       return this;
     };
 
@@ -692,6 +692,9 @@ define('view.title', function() {
     TitleView.prototype.getMonitor = function() {
       var timer,
         _this = this;
+      if (!$('html').is('.desktop')) {
+        return;
+      }
       timer = null;
       return this.monitor = monitor({
         "if": function(y) {
@@ -758,11 +761,11 @@ $(function() {
 
 $(function() {
   var isMobile;
+  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/);
+  $('html').addClass(isMobile ? 'mobile' : 'desktop');
   App.listView = new (require('view.list'))().render();
   App.menuView = new (require('view.menu'));
   App.titleView = new (require('view.title'))().render();
-  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/);
-  $('html').addClass(isMobile ? 'mobile' : 'desktop');
   return App.loader.load(App.fetcher.fetch().done(function() {
     return Backbone.history.start();
   }));

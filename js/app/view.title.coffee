@@ -12,7 +12,7 @@ define 'view.title', ->
       $(window).on 'resize.titleview', @update
 
       @update()
-      @monitor = @getMonitor()
+      @getMonitor()
 
       this
 
@@ -23,6 +23,8 @@ define 'view.title', ->
       @$el.css height: @height()
 
     getMonitor: =>
+      return unless $('html').is('.desktop')
+
       timer = null
       @monitor = monitor
         if: (y) =>
