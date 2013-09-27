@@ -13,6 +13,7 @@ $ ->
 $ ->
   App.listView = new (require 'view.list')().render()
   App.menuView = new (require 'view.menu')
+  App.titleView = new (require 'view.title')().render()
 
   isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/)
   $('html').addClass if isMobile then 'mobile' else 'desktop'

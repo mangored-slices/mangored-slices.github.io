@@ -153,16 +153,16 @@ textarea {
 /* ----------------------------------------------------------------------------
  * Base styles
  */
-body {
+.body {
   padding: 10px;
 }
 @media (min-width: 480px) /* Tablet & Desktop */ {
-  body {
+  .body {
     padding: 30px 10px;
   }
 }
 @media (min-width: 768px) /* Desktop */ {
-  body {
+  .body {
     padding: 50px 10px;
   }
 }
@@ -322,26 +322,26 @@ html.service-twitter {
 /* ----------------------------------------------------------------------------
  * Entry listing
  */
-.body {
+.listing-page {
   margin: 0 auto;
 }
 @media (min-width: 480px) {
-  .body {
+  .listing-page {
     width: 430px;
   }
 }
 @media (min-width: 768px) {
-  .body {
+  .listing-page {
     width: 660px;
   }
 }
 @media (min-width: 1024px) {
-  .body {
+  .listing-page {
     width: 890px;
   }
 }
 @media (min-width: 1280px) {
-  .body {
+  .listing-page {
     width: 1120px;
   }
 }
@@ -528,6 +528,16 @@ html.service-twitter {
   display: none;
 }
 
+.title-card {
+  padding: 60px 0;
+  border-bottom: solid 1px #ccc;
+  text-align: center;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
@@ -535,7 +545,7 @@ html.service-twitter {
 }
 
 #nprogress .bar {
-  background: #29d;
+  background: #222;
 
   position: fixed;
   z-index: 100;
@@ -548,12 +558,12 @@ html.service-twitter {
 
 /* Fancy blur effect */
 #nprogress .peg {
-  display: block;
+  display: none; /* block *?
   position: absolute;
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  box-shadow: 0 0 10px #222, 0 0 5px #222;
   opacity: 1.0;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -577,8 +587,8 @@ html.service-twitter {
   height: 14px;
 
   border:  solid 2px transparent;
-  border-top-color:  #29d;
-  border-left-color: #29d;
+  border-top-color:  #222;
+  border-left-color: #222;
   border-radius: 10px;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;
