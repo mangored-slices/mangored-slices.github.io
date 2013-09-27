@@ -1,8 +1,41 @@
 @import 'nib'
 
 .title-card
-  padding: 60px 0
   border-bottom: solid 1px #ccc
   text-align: center
   background: white
   box-sizing: border-box
+  width: 100%
+  z-index: 1
+  box-shadow: 0 0 4px rgba(black, 0.3)
+
+  &
+    display: table
+    transform: translate3d(0,0,0)
+  > div
+    display: table-cell
+    vertical-align: middle
+  .meta
+    padding: 20px 0
+    max-width: 800px
+    margin: 0 auto
+
+  &
+    font-size: 1.3em
+  h1
+    font-size: 3em
+
+.pinned
+  .body
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 0
+
+  .title-card
+    position: relative
+    z-index: 1
+
+  .entry-item
+    opacity: 0.2

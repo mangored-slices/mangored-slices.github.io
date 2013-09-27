@@ -13,7 +13,6 @@ define 'app.fetcher', ->
       $.get("#{@url}/feed.json")
       .then (data) ->
         # Populate
-        console.log(data)
         Data.accounts.reset data.sources
         Data.entries.reset data.entries
 
