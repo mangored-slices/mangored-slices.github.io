@@ -236,7 +236,8 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define('router.app', function() {
-  var AppRouter, _ref;
+  var $html, AppRouter, _ref;
+  $html = $('html');
   return AppRouter = (function(_super) {
     __extends(AppRouter, _super);
 
@@ -286,9 +287,11 @@ define('router.app', function() {
 
 
     AppRouter.prototype.klass = function(str) {
-      return $('body').attr({
-        "class": str
-      });
+      var m;
+      if (m = $html.data('mode')) {
+        $html.removeClass(m);
+      }
+      return $html.addClass(str).data('mode', str);
     };
 
     /*
@@ -592,8 +595,11 @@ $(function() {
 });
 
 $(function() {
+  var isMobile;
   App.listView = new (require('view.list'))().render();
   App.menuView = new (require('view.menu'));
+  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/);
+  $('html').addClass(isMobile ? 'mobile' : 'desktop');
   return App.loader.load(App.fetcher.fetch().done(function() {
     return Backbone.history.start();
   }));

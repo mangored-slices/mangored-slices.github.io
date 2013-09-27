@@ -132,6 +132,10 @@ html {
   height: 100%;
   font-size: 16px;
   background: #fff;
+  overflow-y: scroll;
+}
+body {
+  background: transparent;
 }
 body,
 input,
@@ -164,6 +168,31 @@ body {
 }
 a {
   text-decoration: none;
+}
+/* ----------------------------------------------------------------------------
+ * Modes
+ */
+html {
+  background: #fff;
+}
+html.desktop {
+  -webkit-transition: background 200ms linear;
+  -moz-transition: background 200ms linear;
+  -o-transition: background 200ms linear;
+  -ms-transition: background 200ms linear;
+  transition: background 200ms linear;
+}
+html.service-instagram {
+  background: #b53c39;
+}
+html.service-tumblr {
+  background: #d6ce45;
+}
+html.service-flickr {
+  background: #dd8b45;
+}
+html.service-twitter {
+  background: #efd73c;
 }
 /* ----------------------------------------------------------------------------
  * Header
@@ -260,24 +289,29 @@ a {
   background: rgba(214,206,69,0.5);
 }
 .menu a.link-flickr i,
-.main-heading:hover .menu a.link-flickr:hover i,
-.menu a.link-flickr.active i {
+.main-heading:hover .menu a.link-flickr:hover i {
   background: #dd8b45;
 }
 .menu a.link-instagram i,
-.main-heading:hover .menu a.link-instagram:hover i,
-.menu a.link-instagram.active i {
+.main-heading:hover .menu a.link-instagram:hover i {
   background: #b53c39;
 }
 .menu a.link-twitter i,
-.main-heading:hover .menu a.link-twitter:hover i,
-.menu a.link-twitter.active i {
+.main-heading:hover .menu a.link-twitter:hover i {
   background: #efd73c;
 }
 .menu a.link-tumblr i,
-.main-heading:hover .menu a.link-tumblr:hover i,
-.menu a.link-tumblr.active i {
+.main-heading:hover .menu a.link-tumblr:hover i {
   background: #d6ce45;
+}
+.menu a.active i,
+.main-heading:hover .menu a.active i,
+.main-heading:hover .menu a.active:hover i {
+  background: #fff;
+}
+.menu a.active span {
+  color: #222;
+  text-shadow: none;
 }
 .menu span {
   position: relative;

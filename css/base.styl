@@ -5,6 +5,10 @@ html
   height: 100%
   font-size: 16px
   background: #fff
+  overflow-y: scroll
+
+body
+  background: transparent
 
 body, input, td, textarea
   line-height: 1.5
@@ -31,6 +35,24 @@ body
 
 a
   text-decoration: none
+
+/* ----------------------------------------------------------------------------
+ * Modes
+ */
+
+html
+  &
+    background: #fff
+  &.desktop
+    transition: background 200ms linear
+  &.service-instagram
+    background: $instagram-bg
+  &.service-tumblr
+    background: $tumblr-bg
+  &.service-flickr
+    background: $flickr-bg
+  &.service-twitter
+    background: $twitter-bg
 
 /* ----------------------------------------------------------------------------
  * Header
@@ -102,17 +124,26 @@ a
 
   // Full background (when it's hovered, or when heading isn't hovered)
   a.link-flickr
-    i, .main-heading:hover &:hover i, &.active i
+    i, .main-heading:hover &:hover i
       background: $flickr-bg
   a.link-instagram
-    i, .main-heading:hover &:hover i, &.active i
+    i, .main-heading:hover &:hover i
       background: $instagram-bg
   a.link-twitter
-    i, .main-heading:hover &:hover i, &.active i
+    i, .main-heading:hover &:hover i
       background: $twitter-bg
   a.link-tumblr
-    i, .main-heading:hover &:hover i, &.active i
+    i, .main-heading:hover &:hover i
       background: $tumblr-bg
+
+  // White background
+  a.active
+    // Specificity, damn
+    i, .main-heading:hover & i, .main-heading:hover &:hover i
+      background: white
+    span
+      color: $txt
+      text-shadow: none
 
   span
     position: relative

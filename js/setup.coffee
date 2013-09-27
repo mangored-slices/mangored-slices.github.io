@@ -14,6 +14,9 @@ $ ->
   App.listView = new (require 'view.list')().render()
   App.menuView = new (require 'view.menu')
 
+  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/)
+  $('html').addClass if isMobile then 'mobile' else 'desktop'
+
   # Fuego!
   App.loader.load(
     App.fetcher.fetch()

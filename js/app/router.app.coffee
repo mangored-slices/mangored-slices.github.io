@@ -1,4 +1,5 @@
 define 'router.app', ->
+  $html = $('html')
 
   class AppRouter extends Backbone.Router
     routes:
@@ -41,7 +42,12 @@ define 'router.app', ->
     # Changes the body class name.
     ###
     klass: (str) ->
-      $('body').attr class: str
+      if m = $html.data('mode')
+        $html.removeClass m
+
+      $html
+        .addClass(str)
+        .data('mode', str)
 
     ###
     # Changes title.
