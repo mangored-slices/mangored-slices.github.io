@@ -708,6 +708,9 @@ define('view.title', function() {
         exit: function(y) {
           var height;
           $('html').removeClass('pinned');
+          $('html').css({
+            height: 'auto'
+          });
           if (timer) {
             clearInterval(timer);
           }

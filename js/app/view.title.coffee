@@ -37,6 +37,8 @@ define 'view.title', ->
 
         exit: (y) =>
           $('html').removeClass 'pinned'
+          $('html').css height: 'auto'
+
           clearInterval(timer) if timer
           height = @$el.outerHeight()
           @remove()
