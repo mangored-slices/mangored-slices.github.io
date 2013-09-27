@@ -402,7 +402,7 @@ html.service-twitter {
   }
 }
 .entry-item .image {
-  background: #808080;
+  background: rgba(0,0,0,0.1);
 }
 .entry-item .image,
 .entry-item .meta {
@@ -445,9 +445,6 @@ html.service-twitter {
 }
 .entry-image .date {
   display: none;
-}
-.entry-image .image {
-  background: #eee;
 }
 .entry-image .meta {
   opacity: 0;
