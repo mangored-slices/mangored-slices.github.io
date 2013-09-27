@@ -24,7 +24,7 @@ define 'view.title', ->
 
     getMonitor: =>
       timer = null
-      monitor
+      @monitor = monitor
         if: (y) =>
           y < @$el.outerHeight()
 
@@ -33,9 +33,13 @@ define 'view.title', ->
           $('html').addClass 'pinned'
           timer = setInterval @pinHeight, 1500
 
-        exit: =>
+        exit: (y) =>
           $('html').removeClass 'pinned'
           clearInterval(timer) if timer
+          height = @$el.outerHeight()
+          @remove()
+          @monitor.disable()
+          $(window).scrollTop (y - height)
 
     pinHeight: =>
       pinned = $('html').is('.pinned')

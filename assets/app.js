@@ -693,7 +693,7 @@ define('view.title', function() {
       var timer,
         _this = this;
       timer = null;
-      return monitor({
+      return this.monitor = monitor({
         "if": function(y) {
           return y < _this.$el.outerHeight();
         },
@@ -702,11 +702,16 @@ define('view.title', function() {
           $('html').addClass('pinned');
           return timer = setInterval(_this.pinHeight, 1500);
         },
-        exit: function() {
+        exit: function(y) {
+          var height;
           $('html').removeClass('pinned');
           if (timer) {
-            return clearInterval(timer);
+            clearInterval(timer);
           }
+          height = _this.$el.outerHeight();
+          _this.remove();
+          _this.monitor.disable();
+          return $(window).scrollTop(y - height);
         }
       });
     };
