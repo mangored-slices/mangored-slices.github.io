@@ -1,5 +1,6 @@
 define 'router.app', ->
   $html = $('html')
+  L = require('locale.en')
 
   class AppRouter extends Backbone.Router
     routes:
@@ -19,7 +20,7 @@ define 'router.app', ->
     service: (service) ->
       App.loader.ping()
 
-      @title service
+      @title L.posts[service]
       @klass "service-#{service}"
 
       App.menuView.activate service

@@ -109,37 +109,19 @@ html
     transform: skew(-30deg)
     transition: background 150ms linear
 
-  // Faded backgroud (when heading is hovered)
-  .main-heading:hover &
-    i
-      transition: none
-    a.link-flickr i
-      background: rgba($flickr-bg, 0.5)
-    a.link-instagram i
-      background: rgba($instagram-bg, 0.5)
-    a.link-twitter i
-      background: rgba($twitter-bg, 0.5)
-    a.link-tumblr i
-      background: rgba($tumblr-bg, 0.5)
-
   // Full background (when it's hovered, or when heading isn't hovered)
-  a.link-flickr
-    i, .main-heading:hover &:hover i
-      background: $flickr-bg
-  a.link-instagram
-    i, .main-heading:hover &:hover i
-      background: $instagram-bg
-  a.link-twitter
-    i, .main-heading:hover &:hover i
-      background: $twitter-bg
-  a.link-tumblr
-    i, .main-heading:hover &:hover i
-      background: $tumblr-bg
+  a.link-flickr i
+    background: $flickr-bg
+  a.link-instagram i
+    background: $instagram-bg
+  a.link-twitter i
+    background: $twitter-bg
+  a.link-tumblr i
+    background: $tumblr-bg
 
   // White background
   a.active
-    // Specificity, damn
-    i, .main-heading:hover & i, .main-heading:hover &:hover i
+    i
       background: white
     span
       color: $txt

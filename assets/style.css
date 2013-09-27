@@ -269,44 +269,19 @@ html.service-twitter {
   -ms-transition: background 150ms linear;
   transition: background 150ms linear;
 }
-.main-heading:hover .menu i {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-}
-.main-heading:hover .menu a.link-flickr i {
-  background: rgba(221,139,69,0.5);
-}
-.main-heading:hover .menu a.link-instagram i {
-  background: rgba(181,60,57,0.5);
-}
-.main-heading:hover .menu a.link-twitter i {
-  background: rgba(239,215,60,0.5);
-}
-.main-heading:hover .menu a.link-tumblr i {
-  background: rgba(214,206,69,0.5);
-}
-.menu a.link-flickr i,
-.main-heading:hover .menu a.link-flickr:hover i {
+.menu a.link-flickr i {
   background: #dd8b45;
 }
-.menu a.link-instagram i,
-.main-heading:hover .menu a.link-instagram:hover i {
+.menu a.link-instagram i {
   background: #b53c39;
 }
-.menu a.link-twitter i,
-.main-heading:hover .menu a.link-twitter:hover i {
+.menu a.link-twitter i {
   background: #efd73c;
 }
-.menu a.link-tumblr i,
-.main-heading:hover .menu a.link-tumblr:hover i {
+.menu a.link-tumblr i {
   background: #d6ce45;
 }
-.menu a.active i,
-.main-heading:hover .menu a.active i,
-.main-heading:hover .menu a.active:hover i {
+.menu a.active i {
   background: #fff;
 }
 .menu a.active span {
