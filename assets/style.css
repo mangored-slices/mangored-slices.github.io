@@ -172,6 +172,14 @@ textarea {
 a {
   text-decoration: none;
 }
+a,
+a:visited {
+  color: #222;
+}
+a:hover,
+a:active {
+  color: #b53c39;
+}
 /* ----------------------------------------------------------------------------
  * Modes
  */
@@ -548,6 +556,10 @@ html.service-twitter {
   display: none;
 }
 
+/* ----------------------------------------------------------------------------
+ * Title card (section.title-card)
+ * The main title that's shown on top.
+ */
 .title-card {
   border-bottom: solid 1px #ccc;
   text-align: center;
@@ -582,6 +594,30 @@ html.service-twitter {
 }
 .title-card h1 {
   font-size: 3em;
+}
+.title-card ul {
+  display: block;
+  margin-top: 1.5em;
+}
+.title-card .hr {
+  margin: 1.5em auto 0 auto;
+  width: 50px;
+  background: #aaa;
+  height: 1px;
+}
+.title-card li {
+  display: inline-block;
+}
+.title-card li a {
+  display: inline-block;
+  padding: 0 12px;
+}
+.title-card li:after {
+  content: '|';
+  color: #888;
+}
+.title-card li:last-child:after {
+  display: none;
 }
 .pinned .body {
   position: fixed;

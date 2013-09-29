@@ -1,4 +1,10 @@
+@import '_common'
 @import 'nib'
+
+/* ----------------------------------------------------------------------------
+ * Title card (section.title-card)
+ * The main title that's shown on top.
+ */
 
 .title-card
   border-bottom: solid 1px #ccc
@@ -12,9 +18,11 @@
   &
     display: table
     transform: translate3d(0,0,0)
+
   > div
     display: table-cell
     vertical-align: middle
+
   .meta
     padding: 20px 0
     max-width: 800px
@@ -22,8 +30,33 @@
 
   &
     font-size: 1.3em
+
   h1
     font-size: 3em
+
+  ul
+    display: block
+    margin-top: 1.5em
+
+  .hr
+    margin: 1.5em auto 0 auto
+    width: 50px
+    background: #aaa
+    height: 1px
+
+  li
+    display: inline-block
+
+  li a
+    display: inline-block
+    padding: 0 12px
+
+  li:after
+    content: '|'
+    color: #888
+
+  li:last-child:after
+    display: none
 
 .pinned
   .body
