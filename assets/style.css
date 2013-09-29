@@ -432,6 +432,10 @@ html.service-twitter {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.entry-item .meta {
+  max-height: 100%;
+  overflow: hidden;
+}
 .entry-item a.link {
   display: block;
   position: absolute;
