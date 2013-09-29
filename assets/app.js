@@ -339,16 +339,18 @@ define('router.app', function() {
     };
 
     AppRouter.prototype.entry = function(slug) {
-      var entry;
+      var entry, service;
       App.loader.ping();
       entry = Data.entries.findBySlug(slug);
+      service = entry.source().name;
       this.title(entry.toString());
-      this.klass("service-" + (entry.source().name));
+      this.klass("service-" + service);
       if (entry) {
-        return console.log("Load", entry.get('text'));
+        console.log("Load", entry.get('text'));
       } else {
-        return alert("Unknown entry");
+        alert("Unknown entry");
       }
+      return App.menuView.activate(service);
     };
 
     /*

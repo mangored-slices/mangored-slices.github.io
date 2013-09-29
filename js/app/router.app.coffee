@@ -30,14 +30,18 @@ define 'router.app', ->
       App.loader.ping()
 
       entry = Data.entries.findBySlug(slug)
+      service = entry.source().name
 
       @title entry.toString()
-      @klass "service-#{entry.source().name}"
+      @klass "service-#{service}"
 
       if entry
         console.log "Load", entry.get('text')
       else
         alert "Unknown entry"
+
+      App.menuView.activate service
+      # TODO: show entry dialog
 
     ###
     # Changes the body class name.
