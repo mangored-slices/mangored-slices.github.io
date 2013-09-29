@@ -1,6 +1,14 @@
 @import '_common'
 @import 'nib'
 
+$zip = cubic-bezier(0,0.9,0.2,1)
+
+@keyframes bounce
+  0%
+    transform: translate3d(0, -20px, 0)
+  100%
+    transform: translate3d(0, 0, 0)
+
 /* ----------------------------------------------------------------------------
  * Title card (section.title-card)
  * The main title that's shown on top.
@@ -34,6 +42,8 @@
   h1
     font-size: 3em
 
+  /* Links */
+
   ul
     display: block
     margin-top: 1.5em
@@ -57,6 +67,33 @@
 
   li:last-child:after
     display: none
+
+  .notch
+    $size = 30px
+
+    position: absolute
+    bottom: 50px + $size
+    left: 50%
+    animation: bounce 400ms $zip infinite alternate-reverse
+
+    opacity: 0.5
+
+    &:before, &:after
+      content: ''
+      position: absolute
+      left: (-1*$size)
+      top: 0
+
+      display: block
+      width: 0
+      height: 0
+      border: solid $size transparent
+      border-top-color: $txt
+      margin: 0 auto
+
+    &:after
+      top: -1px
+      border-top-color: white
 
 .pinned
   .body
