@@ -26,6 +26,7 @@ assets/vendor.js: \
 	vendor/jquery-2.0.2.js \
 	vendor/respond.js \
 	vendor/underscore.js \
+	vendor/underscore-string.js \
 	vendor/backbone.js \
 	vendor/moment.js \
 	vendor/nprogress.js \
