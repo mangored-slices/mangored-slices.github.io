@@ -20,6 +20,7 @@ assets/style.css: \
 	assets/_reset.css \
 	assets/_base.css \
 	assets/_title-card.css \
+	assets/_ndialog.css \
 	css/nprogress.css
 	cat $^ > $@
 
@@ -33,6 +34,7 @@ assets/vendor.js: \
 	vendor/nprogress.js \
 	vendor/jquery.fillsize.js \
 	vendor/masonry.js \
+	vendor/ndialog.js \
 	vendor/almond.js
 	cat $^ | $(uglify) -m > $@
 
