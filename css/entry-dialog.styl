@@ -1,0 +1,21 @@
+@import 'nib'
+@import '_common'
+
+.entry-dialog
+  .image
+    background: $grey
+    margin-bottom: 20px
+
+  .meta
+    clearfix()
+
+  .meta .right
+    color: $coal
+    margin-left: 20px
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    .meta .left
+      float: left
+
+    .meta .right
+      float: right
