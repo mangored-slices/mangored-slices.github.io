@@ -5,9 +5,9 @@ $zip = cubic-bezier(0,0.9,0.2,1)
 
 @keyframes bounce
   0%
-    transform: translate3d(0, -20px, 0)
-  100%
     transform: translate3d(0, 0, 0)
+  100%
+    transform: translate3d(0, -20px, 0)
 
 /* ----------------------------------------------------------------------------
  * Title card (section.title-card)
@@ -68,32 +68,37 @@ $zip = cubic-bezier(0,0.9,0.2,1)
   li:last-child:after
     display: none
 
-  .notch
-    $size = 30px
+  @media (min-height: 500px)
+    .notch
+      $size = 30px
 
-    position: absolute
-    bottom: 50px + $size
-    left: 50%
-    animation: bounce 400ms $zip infinite alternate-reverse
-
-    opacity: 0.5
-
-    &:before, &:after
-      content: ''
       position: absolute
-      left: (-1*$size)
-      top: 0
+      bottom: 50px + $size
+      left: 50%
+      animation: bounce 400ms $zip infinite alternate-reverse
 
-      display: block
-      width: 0
-      height: 0
-      border: solid $size transparent
-      border-top-color: $txt
-      margin: 0 auto
+      opacity: 0.5
 
-    &:after
-      top: -1px
-      border-top-color: white
+      &:before, &:after
+        content: ''
+        position: absolute
+        left: (-1*$size)
+        top: 0
+
+        display: block
+        width: 0
+        height: 0
+        border: solid $size transparent
+        border-top-color: $txt
+        margin: 0 auto
+
+      &:after
+        top: -1px
+        border-top-color: white
+
+/* ----------------------------------------------------------------------------
+ * Pinned
+ */
 
 .pinned
   .body
