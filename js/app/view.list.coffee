@@ -33,7 +33,7 @@ define 'view.list', ->
 
     render: ->
       @$el.masonry
-        itemSelector: (r 'entry')
+        itemSelector: "article:visible"
 
       this
 
@@ -48,12 +48,20 @@ define 'view.list', ->
     ###
 
     add: (entry) =>
-      view = new EntryView(entry: entry)
+      i = @$el.children().length
+      view = new EntryView(entry: entry, index: i)
 
       @$el
         .append(view.render().el)
         .masonry('appended', view.$el)
-        .masonry()
+
+      if Math.random() < 0.3
+        $ph = $("<article class='entry-item h1 w1 placeholder'></article>")
+        @$el
+          .append($ph)
+          .masonry('appended', $ph)
+
+      @relayout()
 
     filterBy: (service) =>
       if service

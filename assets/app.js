@@ -409,7 +409,8 @@ define('view.entry', function() {
     EntryView.prototype.className = 'entry-item';
 
     EntryView.prototype.initialize = function() {
-      return this.entry = this.options.entry;
+      this.entry = this.options.entry;
+      return this.index = this.options.index;
     };
 
     /** Renders the element
@@ -465,7 +466,9 @@ define('view.entry', function() {
 
 
     EntryView.prototype.getSize = function() {
-      if (this.entry.isImage()) {
+      if (this.index === 0) {
+        return [2, 2];
+      } else if (this.entry.isImage()) {
         if (this.entry.isVertical()) {
           return [1, 2];
         } else if (this.entry.isHorizontal()) {
@@ -603,7 +606,7 @@ define('view.list', function() {
 
     ListView.prototype.render = function() {
       this.$el.masonry({
-        itemSelector: r('entry')
+        itemSelector: "article:visible"
       });
       return this;
     };
@@ -625,11 +628,18 @@ define('view.list', function() {
 
 
     ListView.prototype.add = function(entry) {
-      var view;
+      var $ph, i, view;
+      i = this.$el.children().length;
       view = new EntryView({
-        entry: entry
+        entry: entry,
+        index: i
       });
-      return this.$el.append(view.render().el).masonry('appended', view.$el).masonry();
+      this.$el.append(view.render().el).masonry('appended', view.$el);
+      if (Math.random() < 0.3) {
+        $ph = $("<article class='entry-item h1 w1 placeholder'></article>");
+        this.$el.append($ph).masonry('appended', $ph);
+      }
+      return this.relayout();
     };
 
     ListView.prototype.filterBy = function(service) {

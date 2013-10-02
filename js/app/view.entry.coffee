@@ -8,6 +8,7 @@ define 'view.entry', ->
 
     initialize: ->
       @entry = @options.entry
+      @index = @options.index
 
     ###* Renders the element
     ###
@@ -46,7 +47,9 @@ define 'view.entry', ->
     ###* Returns grid size as a tuple (`[1, 3]` for 1x3)
     ###
     getSize: ->
-      if @entry.isImage()
+      if @index is 0
+        [2, 2]
+      else if @entry.isImage()
         if @entry.isVertical()
           [1, 2]
         else if @entry.isHorizontal()
