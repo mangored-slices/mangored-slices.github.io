@@ -206,6 +206,25 @@ html.service-twitter {
   background: #efd73c;
 }
 /* ----------------------------------------------------------------------------
+ * Webfont load
+ */
+html body {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 300ms linear;
+  -moz-transition: opacity 300ms linear;
+  -o-transition: opacity 300ms linear;
+  -ms-transition: opacity 300ms linear;
+  transition: opacity 300ms linear;
+}
+html.wf-active body,
+html.wf-inactive body {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+/* ----------------------------------------------------------------------------
  * Header
  */
 .main-heading {
