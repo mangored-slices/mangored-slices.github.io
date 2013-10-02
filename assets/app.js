@@ -606,7 +606,7 @@ define('view.list', function() {
 
     ListView.prototype.render = function() {
       this.$el.masonry({
-        itemSelector: "article:visible"
+        itemSelector: "article"
       });
       return this;
     };

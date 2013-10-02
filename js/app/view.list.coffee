@@ -33,7 +33,7 @@ define 'view.list', ->
 
     render: ->
       @$el.masonry
-        itemSelector: "article:visible"
+        itemSelector: "article"
 
       this
 
