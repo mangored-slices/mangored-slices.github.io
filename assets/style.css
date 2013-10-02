@@ -616,7 +616,7 @@ html.wf-inactive body {
 }
 .title-card .meta {
   padding: 20px 0;
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
 }
 .title-card {
@@ -624,6 +624,28 @@ html.wf-inactive body {
 }
 .title-card h1 {
   font-size: 3em;
+}
+.title-card p {
+  font-size: 1.1em;
+}
+.title-card span.footnote {
+  display: none;
+}
+@media (min-width: 768px) and (min-height: 500px) /* Desktop */ {
+  .title-card span.footnote {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 0.8em;
+    display: block;
+  }
+  .title-card span.footnote,
+  .title-card span.footnote a {
+    color: #999;
+  }
+  .title-card span.footnote a:hover {
+    color: #222;
+  }
 }
 .title-card ul {
   display: block;

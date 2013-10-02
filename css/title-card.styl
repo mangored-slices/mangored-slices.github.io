@@ -33,7 +33,7 @@ $zip = cubic-bezier(0,0.9,0.2,1)
 
   .meta
     padding: 20px 0
-    max-width: 500px
+    max-width: 450px
     margin: 0 auto
 
   &
@@ -41,6 +41,25 @@ $zip = cubic-bezier(0,0.9,0.2,1)
 
   h1
     font-size: 3em
+
+  p
+    font-size: 1.1em
+
+  span.footnote
+    display: none
+
+  @media (min-width: 768px) and (min-height: 500px) /* Desktop */
+    span.footnote
+      position: absolute
+      bottom: 30px
+      right: 30px
+      font-size: 0.8em
+      display: block
+
+      &, a
+        color: $coal
+      a:hover
+        color: $txt
 
   /* Links */
 
