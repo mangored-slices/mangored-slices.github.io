@@ -350,6 +350,7 @@ define('router.app', function() {
       service = entry.source().name;
       this.title(entry.toString());
       App.menuView.activate(service);
+      this.klass("entry");
       return new EntryDialogView({
         model: entry
       }).render();

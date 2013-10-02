@@ -159,6 +159,9 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.entry .body {
+  -webkit-filter: blur(2px);
+}
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .body {
     padding: 30px 10px;
@@ -781,9 +784,9 @@ html.wf-inactive body {
  */
 .ndialog-screen {
   background: #fff;
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80);
+  opacity: 0.85;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+  filter: alpha(opacity=85);
 }
 .ndialog-popup {
   padding: 20px;

@@ -40,7 +40,7 @@ define 'router.app', ->
       service = entry.source().name
       @title entry.toString()
       App.menuView.activate service
-      # @klass "service-#{service}"
+      @klass "entry"
 
       # Open the dialog
       new EntryDialogView(model: entry).render()
