@@ -20,7 +20,6 @@ assets/style.css: \
 	assets/_reset.css \
 	assets/_base.css \
 	assets/_title-card.css \
-	assets/_ndialog.css \
 	assets/_entry-dialog.css \
 	css/nprogress.css
 	cat $^ > $@

@@ -527,20 +527,19 @@ define('view.entry_dialog', function() {
       width = 600;
       this.$el = this.dialog.$el;
       this.$el.find(r('image')).attr({
-        src: this.model.get('image_large') || this.model.get('image')
+        src: this.model.get('image_large') || this.model.get('image'),
+        width: width,
+        height: width * parseFloat(this.model.get('image_ratio'), 10)
       });
       this.$el.find(r('title')).text(this.model.toString());
       this.$el.find(r('date')).text(this.model.date('ago'));
-      this.$el.find(r('image')).attr({
-        width: width
-      }).attr({
-        height: width * parseFloat(this.model.get('image_ratio'), 10)
-      });
-      this.dialog.reposition();
+      this.dialog.on('close', function() {
+        return history.back();
+      }).reposition();
       return this;
     };
 
-    EntryDialogView.prototype.template = "<div>\n  <div class='image'>\n    <img src='' role='image'>\n  </div>\n  <div class='meta'>\n    <div class='left' role='title'>\n    </div>\n    <div class='right' role='date'>\n    </div>\n  </div>\n</div>";
+    EntryDialogView.prototype.template = "<div>\n  <div class='image'>\n    <img src='' role='image'>\n  </div>\n  <div class='meta'>\n    <div class='right' role='date'>\n    </div>\n    <div class='left' role='title'>\n    </div>\n  </div>\n</div>";
 
     return EntryDialogView;
 

@@ -1,13 +1,41 @@
 @import 'nib'
 @import '_common'
 
+/* ----------------------------------------------------------------------------
+ * NDialog stuff
+ */
+
+.ndialog-screen
+  background: white
+  opacity: 0.5
+
+.ndialog-popup
+  padding: 20px
+  background: white
+  box-shadow: 5px 5px 0 rgba(black, 0.15)
+
+  @media (min-width: 768px) /* Desktop */
+    padding: 40px
+
+/* ----------------------------------------------------------------------------
+ * Entry dialog view
+ */
+
 .entry-dialog
+  .image, .image img
+    display: block
+    margin: 0
+    padding: 0
+
   .image
     background: $grey
     margin-bottom: 20px
 
   .meta
     clearfix()
+
+  .meta .left
+    max-width: 400px
 
   .meta .right
     color: $coal

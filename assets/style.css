@@ -776,6 +776,9 @@ html.wf-inactive body {
   }
 }
 
+/* ----------------------------------------------------------------------------
+ * NDialog stuff
+ */
 .ndialog-screen {
   background: #fff;
   opacity: 0.5;
@@ -785,10 +788,23 @@ html.wf-inactive body {
 .ndialog-popup {
   padding: 20px;
   background: #fff;
-  -webkit-box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
-  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+  -webkit-box-shadow: 5px 5px 0 rgba(0,0,0,0.15);
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.15);
 }
-
+@media (min-width: 768px) /* Desktop */ {
+  .ndialog-popup {
+    padding: 40px;
+  }
+}
+/* ----------------------------------------------------------------------------
+ * Entry dialog view
+ */
+.entry-dialog .image,
+.entry-dialog .image img {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 .entry-dialog .image {
   background: #eee;
   margin-bottom: 20px;
@@ -803,6 +819,9 @@ html.wf-inactive body {
 }
 .entry-dialog .meta:after {
   clear: both;
+}
+.entry-dialog .meta .left {
+  max-width: 400px;
 }
 .entry-dialog .meta .right {
   color: #999;
