@@ -334,7 +334,7 @@ define('router.app', function() {
     AppRouter.prototype.service = function(service) {
       App.loader.ping();
       this.title(L.posts[service]);
-      this.klass("service-" + service);
+      this.klass("service-" + service + " service");
       App.menuView.activate(service);
       return App.listView.filterBy(service);
     };
@@ -350,7 +350,6 @@ define('router.app', function() {
       service = entry.source().name;
       this.title(entry.toString());
       App.menuView.activate(service);
-      this.klass("entry");
       return new EntryDialogView({
         model: entry
       }).render();

@@ -244,6 +244,16 @@ html.wf-inactive body {
   text-transform: uppercase;
   color: #222;
 }
+.desktop .main-heading .logo {
+  -webkit-transition: color 200ms linear;
+  -moz-transition: color 200ms linear;
+  -o-transition: color 200ms linear;
+  -ms-transition: color 200ms linear;
+  transition: color 200ms linear;
+}
+.service .main-heading .logo {
+  color: #fff;
+}
 .main-heading .logo,
 .main-heading .menu {
   float: left;

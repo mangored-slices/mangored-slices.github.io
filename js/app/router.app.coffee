@@ -22,7 +22,7 @@ define 'router.app', ->
       App.loader.ping()
 
       @title L.posts[service]
-      @klass "service-#{service}"
+      @klass "service-#{service} service"
 
       App.menuView.activate service
       App.listView.filterBy service
@@ -40,7 +40,7 @@ define 'router.app', ->
       service = entry.source().name
       @title entry.toString()
       App.menuView.activate service
-      @klass "entry"
+      # @klass "entry"
 
       # Open the dialog
       new EntryDialogView(model: entry).render()
