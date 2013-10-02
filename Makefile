@@ -1,6 +1,7 @@
 all: assets
 
 include make/Makefile.base
+include make/Makefile.watch
 include make/Makefile.cachebust
 include make/Makefile.stylus
 include make/Makefile.coffeescript
