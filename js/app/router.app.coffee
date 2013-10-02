@@ -1,6 +1,7 @@
 define 'router.app', ->
   $html = $('html')
   L = require('locale.en')
+  EntryDialogView = require 'view.entry_dialog'
 
   class AppRouter extends Backbone.Router
     routes:
@@ -29,19 +30,20 @@ define 'router.app', ->
     entry: (slug) ->
       App.loader.ping()
 
+      # Fetch
       entry = Data.entries.findBySlug(slug)
-      service = entry.source().name
-
-      @title entry.toString()
-      @klass "service-#{service}"
-
-      if entry
-        console.log "Load", entry.get('text')
-      else
+      unless entry
         alert "Unknown entry"
+        return
 
+      # Activate
+      service = entry.source().name
+      @title entry.toString()
       App.menuView.activate service
-      # TODO: show entry dialog
+      # @klass "service-#{service}"
+
+      # Open the dialog
+      new EntryDialogView(model: entry).render()
 
     ###
     # Changes the body class name.
