@@ -32,6 +32,7 @@ define 'view.entry_dialog', ->
 
     template: """
       <div>
+        <button class='close' role='close'></button>
         <div class='image'>
           <img src='' role='image'>
         </div>

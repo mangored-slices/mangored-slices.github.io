@@ -7,7 +7,7 @@
 
 .ndialog-screen
   background: white
-  opacity: 0.5
+  opacity: 0.8
 
 .ndialog-popup
   padding: 20px
@@ -21,7 +21,58 @@
  * Entry dialog view
  */
 
+close-button($size=40px, $color=#333, $pad=10px)
+  background: rgba(white, 0.0)
+  width: ($size + $pad * 2)
+  height: ($size + $pad * 2)
+
+  &:before, &:after
+    content: ''
+    width: $size
+    height: 1px
+    background: $color
+    display: block
+    position: absolute
+    top: 50%
+    left: $pad
+
+  &:before
+    transform: rotate(45deg)
+  &:after
+    transform: rotate(-45deg)
+
+
 .entry-dialog
+  .close
+    position: fixed
+    right: 20px
+    top: 20px
+
+  .close
+    close-button(40px, rgba(black, 0.8))
+    transition: all 100ms ease
+    transform: translate3d(0,0,0)
+    &:before, &:after
+      box-shadow: 0 1px 0 rgba(white, 0.2)
+
+  .close:hover
+    &
+      background: $txt
+      box-shadow: 4px 4px 0 rgba(black, 0.05)
+    .service-instagram &
+      background: $instagram-bg
+    .service-tumblr &
+      background: $tumblr-bg
+    .service-flickr &
+      background: $flickr-bg
+    .service-twitter &
+      background: $twitter-bg
+    &:active
+      background: #000 !important
+      transform: translate3d(0,2px,0)
+    &:before, &:after
+      background: white
+
   .image, .image img
     display: block
     margin: 0
