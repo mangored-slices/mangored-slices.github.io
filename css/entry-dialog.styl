@@ -78,8 +78,21 @@ close-button($size=40px, $color=#333, $pad=10px)
     padding: 0
 
   .image
-    background: $grey
+    position: relative
+    background: #333
     margin-bottom: 20px
+
+  .image img.lores
+    position: relative
+    opacity: 0.08
+    z-index: 0
+
+  .image img.hires
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 1
 
   .meta
     clearfix()

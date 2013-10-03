@@ -968,8 +968,23 @@ html.wf-inactive body {
   padding: 0;
 }
 .entry-dialog .image {
-  background: #eee;
+  position: relative;
+  background: #333;
   margin-bottom: 20px;
+}
+.entry-dialog .image img.lores {
+  position: relative;
+  opacity: 0.08;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=8)";
+  filter: alpha(opacity=8);
+  z-index: 0;
+}
+.entry-dialog .image img.hires {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 .entry-dialog .meta {
   zoom: 1;

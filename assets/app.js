@@ -576,8 +576,11 @@ define('view.entry_dialog', function() {
       });
       width = 600;
       this.$el = this.dialog.$el;
-      this.$el.find(r('image')).attr({
-        src: this.model.get('image_large') || this.model.get('image'),
+      this.$el.find(r('image_hires')).attr({
+        src: this.model.get('image_large') || this.model.get('image')
+      });
+      this.$el.find(r('image_lores')).attr({
+        src: this.model.get('image'),
         width: width,
         height: width * parseFloat(this.model.get('image_ratio'), 10)
       });
@@ -589,7 +592,7 @@ define('view.entry_dialog', function() {
       return this;
     };
 
-    EntryDialogView.prototype.template = "<div>\n  <button class='close' role='close'></button>\n  <div class='image'>\n    <img src='' role='image'>\n  </div>\n  <div class='meta'>\n    <div class='right' role='date'>\n    </div>\n    <div class='left' role='title'>\n    </div>\n  </div>\n</div>";
+    EntryDialogView.prototype.template = "<div>\n  <button class='close' role='close'></button>\n  <div class='image'>\n    <img src='' role='image_lores' class='lores'>\n    <img src='' role='image_hires' class='hires'>\n  </div>\n  <div class='meta'>\n    <div class='right' role='date'>\n    </div>\n    <div class='left' role='title'>\n    </div>\n  </div>\n</div>";
 
     return EntryDialogView;
 
