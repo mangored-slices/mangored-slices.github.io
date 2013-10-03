@@ -321,21 +321,22 @@ html
       opacity: 1
 
   // Extra text sizes
-  &.w1
-    & .text
-      font-size: 1.1em
-      line-height: 1.18
-    &.text-short .text
-      font-size: 1.3em
-      line-height: 1.1
+  @media (min-width: 480px) /* Tablet & Desktop */
+    &.w1
+      & .text
+        font-size: 1.1em
+        line-height: 1.18
+      &.text-short .text
+        font-size: 1.3em
+        line-height: 1.1
 
-  &.w2
-    & .text
-      font-size: 2em
-    &.text-medium .text
-      font-size: 3em
-    &.text-short .text
-      font-size: 4em
+    &.w2
+      & .text
+        font-size: 2em
+      &.text-medium .text
+        font-size: 3em
+      &.text-short .text
+        font-size: 4em
 
 /* ----------------------------------------------------------------------------
  * Text entries
