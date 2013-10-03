@@ -703,12 +703,25 @@ define('view.list', function() {
       return this.relayout();
     };
 
-    /** Update layouts*/
+    /** Update layouts
+    */
 
 
     ListView.prototype.relayout = function() {
-      this.$el.masonry();
-      return this.$el.trigger('fillsize');
+      var delay,
+        _this = this;
+      delay = function(fn) {
+        return setTimeout(fn, 0);
+      };
+      delay(function() {
+        return _this.$el.masonry('reloadItems');
+      });
+      delay(function() {
+        return _this.$el.masonry();
+      });
+      return delay(function() {
+        return _this.$el.trigger('fillsize');
+      });
     };
 
     return ListView;

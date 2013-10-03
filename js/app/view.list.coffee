@@ -76,7 +76,10 @@ define 'view.list', ->
 
       @relayout()
 
-    ###* Update layouts ###
+    ###* Update layouts
+    ####
     relayout: ->
-      @$el.masonry()
-      @$el.trigger('fillsize')
+      delay = (fn) -> setTimeout fn, 0
+      delay => @$el.masonry('reloadItems')
+      delay => @$el.masonry()
+      delay => @$el.trigger('fillsize')

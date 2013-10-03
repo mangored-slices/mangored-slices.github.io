@@ -221,12 +221,13 @@ html
 .entry-item
   &
     margin: 0 0 10px 0
-    transition: all 300ms linear
+    transition: opacity 300ms linear 300ms
     opacity: 1
     transform: translate3d(0,0,0)
 
   &.hide
-    opacity 0
+    opacity: 0
+    transition: opacity 300ms linear
 
   @media (min-width: 480px) /* Tablet & Desktop */
     margin: 0 $gut $gut 0
