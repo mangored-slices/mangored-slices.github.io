@@ -384,22 +384,22 @@ html.wf-inactive body {
 }
 @media (min-width: 480px) {
   .listing-page {
-    width: 440px;
+    width: 400px;
   }
 }
 @media (min-width: 768px) {
   .listing-page {
-    width: 680px;
+    width: 620px;
   }
 }
 @media (min-width: 1024px) {
   .listing-page {
-    width: 920px;
+    width: 840px;
   }
 }
 @media (min-width: 1280px) {
   .listing-page {
-    width: 1160px;
+    width: 1060px;
   }
 }
 .entry-list {
@@ -422,8 +422,8 @@ html.wf-inactive body {
   }
   .entry-list .entry-item,
   .entry-list .entry-item .image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 }
 /* ----------------------------------------------------------------------------
@@ -467,19 +467,19 @@ html.wf-inactive body {
 @media (min-width: 768px) /* Desktop */ {
   .entry-item.w2,
   .entry-item.w2 .image {
-    width: 440px;
+    width: 400px;
   }
   .entry-item.h2,
   .entry-item.h2 .image {
-    height: 440px;
+    height: 400px;
   }
   .entry-item.w3,
   .entry-item.w3 .image {
-    width: 680px;
+    width: 620px;
   }
   .entry-item.h3,
   .entry-item.h3 .image {
-    height: 680px;
+    height: 620px;
   }
 }
 @media (min-width: 480px) /* Tablet & Desktop */ {
