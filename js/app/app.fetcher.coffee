@@ -1,4 +1,6 @@
 define 'app.fetcher', ->
+  Config = require 'app.config'
+
   class Fetcher
     constructor: ->
       @url = App.config.feedUrl
@@ -15,7 +17,4 @@ define 'app.fetcher', ->
         # Populate
         Data.accounts.reset data.sources
         Data.entries.reset data.entries
-
-      .then ->
-        console.log("[Fetcher] ok")
 

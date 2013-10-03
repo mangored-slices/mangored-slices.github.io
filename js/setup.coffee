@@ -29,5 +29,7 @@ $ ->
   # Fuego!
   App.loader.load(
     App.fetcher.fetch()
-    .done -> Backbone.history.start()
+    .done ->
+      $('html').addClass('loaded')
+      Backbone.history.start()
   )
