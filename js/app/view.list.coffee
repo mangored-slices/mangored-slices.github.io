@@ -1,5 +1,6 @@
 define 'view.list', ->
   r = (role) -> "[role~='#{role}']"
+  immediate = (fn) -> setTimeout fn, 0
 
   EntryView = require 'view.entry'
 
@@ -38,9 +39,18 @@ define 'view.list', ->
         'add':   @add
 
     render: ->
-      @$el.masonry
-        columnWidth: 20
-        itemSelector: "article:not(.hide)"
+      # Activate masonry on tablet/desktop, and off on mobile.
+      @media = Harvey.attach 'screen and (min-width: 480px)',
+        on: =>
+          @$el
+            .addClass('masonry-layout')
+            .masonry
+              columnWidth: 20
+              itemSelector: "article:not(.hide)"
+        off: =>
+          @$el
+            .removeClass('masonry-layout')
+            .masonry('destroy')
 
       this
 
@@ -60,18 +70,23 @@ define 'view.list', ->
       view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType))
 
       $(document).queue (next) =>
-        @$el
-          .append(view.render().el)
-          .masonry('appended', view.$el)
+        @$el.append(view.render().el)
+        @$el.masonry('appended', view.$el) if @media.active
 
         if Math.random() < @scatter
           $ph = $("<article class='entry-item h1 w1 placeholder'></article>")
-          @$el
-            .append($ph)
-            .masonry('appended', $ph)
+          @$el.append($ph)
+          @$el.masonry('appended', $ph) if @media.active
 
         @relayout()
         next()
+
+    ###*
+    # Filters by a given service
+    #
+    #     filterBy('instagram')
+    #     filterBy(null)
+    ###
 
     filterBy: (service) =>
       $(document).queue (next) =>
@@ -86,10 +101,13 @@ define 'view.list', ->
         @relayout()
         setTimeout next, @speed
 
-    ###* Update layouts
+    ###*
+    # Update layouts
     ####
+
     relayout: ->
-      delay = (fn) -> setTimeout fn, 0
-      delay => @$el.masonry('reloadItems')
-      delay => @$el.masonry()
-      delay => @$el.trigger('fillsize')
+      immediate =>
+        if @media.active
+          @$el.masonry('reloadItems')
+          @$el.masonry()
+        @$el.trigger('fillsize')

@@ -604,9 +604,12 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define('view.list', function() {
-  var EntryView, ListView, r, _ref;
+  var EntryView, ListView, immediate, r, _ref;
   r = function(role) {
     return "[role~='" + role + "']";
+  };
+  immediate = function(fn) {
+    return setTimeout(fn, 0);
   };
   EntryView = require('view.entry');
   /**
@@ -664,9 +667,17 @@ define('view.list', function() {
     };
 
     ListView.prototype.render = function() {
-      this.$el.masonry({
-        columnWidth: 20,
-        itemSelector: "article:not(.hide)"
+      var _this = this;
+      this.media = Harvey.attach('screen and (min-width: 480px)', {
+        on: function() {
+          return _this.$el.addClass('masonry-layout').masonry({
+            columnWidth: 20,
+            itemSelector: "article:not(.hide)"
+          });
+        },
+        off: function() {
+          return _this.$el.removeClass('masonry-layout').masonry('destroy');
+        }
       });
       return this;
     };
@@ -699,15 +710,29 @@ define('view.list', function() {
       });
       return $(document).queue(function(next) {
         var $ph;
-        _this.$el.append(view.render().el).masonry('appended', view.$el);
+        _this.$el.append(view.render().el);
+        if (_this.media.active) {
+          _this.$el.masonry('appended', view.$el);
+        }
         if (Math.random() < _this.scatter) {
           $ph = $("<article class='entry-item h1 w1 placeholder'></article>");
-          _this.$el.append($ph).masonry('appended', $ph);
+          _this.$el.append($ph);
+          if (_this.media.active) {
+            _this.$el.masonry('appended', $ph);
+          }
         }
         _this.relayout();
         return next();
       });
     };
+
+    /**
+    # Filters by a given service
+    #
+    #     filterBy('instagram')
+    #     filterBy(null)
+    */
+
 
     ListView.prototype.filterBy = function(service) {
       var _this = this;
@@ -725,23 +750,18 @@ define('view.list', function() {
       });
     };
 
-    /** Update layouts
+    /**
+    # Update layouts
     */
 
 
     ListView.prototype.relayout = function() {
-      var delay,
-        _this = this;
-      delay = function(fn) {
-        return setTimeout(fn, 0);
-      };
-      delay(function() {
-        return _this.$el.masonry('reloadItems');
-      });
-      delay(function() {
-        return _this.$el.masonry();
-      });
-      return delay(function() {
+      var _this = this;
+      return immediate(function() {
+        if (_this.media.active) {
+          _this.$el.masonry('reloadItems');
+          _this.$el.masonry();
+        }
         return _this.$el.trigger('fillsize');
       });
     };

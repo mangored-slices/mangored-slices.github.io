@@ -36,6 +36,7 @@ assets/vendor.js: \
 	vendor/masonry.js \
 	vendor/jquery-cookie.js \
 	vendor/ndialog.js \
+	vendor/harvey.js \
 	vendor/almond.js
 	cat $^ | $(uglify) -m > $@
 
