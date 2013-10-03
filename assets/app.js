@@ -460,7 +460,8 @@ define('view.entry', function() {
 
     EntryView.prototype.renderClasses = function() {
       this.$el.addClass("entry-" + (this.entry.typeClass()));
-      return this.$el.addClass("service-" + (this.entry.source().name));
+      this.$el.addClass("service-" + (this.entry.source().name));
+      return this.$el.addClass("text-" + (this.getLength()));
     };
 
     /** Renders common entries
@@ -506,6 +507,24 @@ define('view.entry', function() {
         }
       } else {
         return [1, 1];
+      }
+    };
+
+    /** Returns the length
+    */
+
+
+    EntryView.prototype.getLength = function() {
+      var len;
+      len = this.entry.get('text').length;
+      if (len <= 60) {
+        return 'short';
+      } else if (len <= 110) {
+        return 'medium';
+      } else if (len <= 180) {
+        return 'long';
+      } else {
+        return 'xlong';
       }
     };
 

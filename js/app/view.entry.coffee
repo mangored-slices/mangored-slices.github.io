@@ -28,6 +28,7 @@ define 'view.entry', ->
     renderClasses: ->
       @$el.addClass "entry-#{@entry.typeClass()}"
       @$el.addClass "service-#{@entry.source().name}"
+      @$el.addClass "text-#{@getLength()}"
 
     ###* Renders common entries
     ###
@@ -60,6 +61,19 @@ define 'view.entry', ->
           [1, 1]
       else
         [1, 1]
+
+    ###* Returns the length
+    ###
+    getLength: ->
+      len = @entry.get('text').length
+      if len <= 60
+        'short'
+      else if len <= 110
+        'medium'
+      else if len <= 180
+        'long'
+      else
+        'xlong'
 
     ###* Renders an image type
     ###
