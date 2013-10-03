@@ -91,9 +91,11 @@ define 'view.entry', ->
       <div class='image' role='image'>
       </div>
       <div class='meta'>
-        <div class='date' role='date'></div>
-        <div class='text' role='text'></div>
-        <div class='date-ago' role='date_ago'></div>
+        <div>
+          <div class='date' role='date'></div>
+          <div class='text' role='text'></div>
+          <div class='date-ago' role='date_ago'></div>
+        </div>
       </div>
     """
 

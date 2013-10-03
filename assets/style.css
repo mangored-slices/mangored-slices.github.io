@@ -522,10 +522,18 @@ html.wf-inactive body {
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 20px;
   background: rgba(181,60,57,0.95);
+}
+.entry-image .meta > div {
+  padding: 20px;
   color: #fff;
   text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-mask-image: -webkit-gradient(linear, left 80%, left bottom, from(#000), to(rgba(0,0,0,0)));
 }
 .entry-image.service-flickr .meta {
   background: rgba(221,139,69,0.95);

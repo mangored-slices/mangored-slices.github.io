@@ -547,7 +547,7 @@ define('view.entry', function() {
     */
 
 
-    EntryView.prototype.template = "<a class='link' href='#' role='link'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div class='date' role='date'></div>\n  <div class='text' role='text'></div>\n  <div class='date-ago' role='date_ago'></div>\n</div>";
+    EntryView.prototype.template = "<a class='link' href='#' role='link'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div>\n    <div class='date' role='date'></div>\n    <div class='text' role='text'></div>\n    <div class='date-ago' role='date_ago'></div>\n  </div>\n</div>";
 
     return EntryView;
 
