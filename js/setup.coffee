@@ -14,9 +14,17 @@ $ ->
   isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/)
   $('html').addClass if isMobile then 'mobile' else 'desktop'
 
+  onFirstVisit = require 'lib.onfirstvisit'
+
   App.listView = new (require 'view.list')().render()
   App.menuView = new (require 'view.menu')
-  App.titleView = new (require 'view.title')().render()
+
+  onFirstVisit
+    days: 7
+    then: =>
+      $('[role~="title_view"]').remove()
+    else: =>
+      App.titleView = new (require 'view.title')().render()
 
   # Fuego!
   App.loader.load(
