@@ -459,6 +459,7 @@ define('view.entry', function() {
 
 
     EntryView.prototype.renderClasses = function() {
+      this.$el.addClass(this.options["class"]);
       this.$el.addClass("entry-" + (this.entry.typeClass()));
       this.$el.addClass("service-" + (this.entry.source().name));
       return this.$el.addClass("text-" + (this.getLength()));
@@ -673,11 +674,13 @@ define('view.list', function() {
 
 
     ListView.prototype.add = function(entry) {
-      var $ph, i, view;
+      var $ph, firstOfType, i, view;
       i = this.$el.children().length;
+      firstOfType = this.$el.find(".service-" + (entry.source().name)).length === 0;
       view = new EntryView({
         entry: entry,
-        index: i
+        index: i,
+        "class": (firstOfType ? 'active' : void 0)
       });
       this.$el.append(view.render().el).masonry('appended', view.$el);
       if (Math.random() < 0.3) {

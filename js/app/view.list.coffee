@@ -49,7 +49,8 @@ define 'view.list', ->
 
     add: (entry) =>
       i = @$el.children().length
-      view = new EntryView(entry: entry, index: i)
+      firstOfType = @$el.find(".service-#{entry.source().name}").length is 0
+      view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType))
 
       @$el
         .append(view.render().el)

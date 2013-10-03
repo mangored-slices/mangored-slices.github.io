@@ -26,6 +26,7 @@ define 'view.entry', ->
     ###* Adds CSS classes
     ###
     renderClasses: ->
+      @$el.addClass @options.class
       @$el.addClass "entry-#{@entry.typeClass()}"
       @$el.addClass "service-#{@entry.source().name}"
       @$el.addClass "text-#{@getLength()}"
