@@ -449,6 +449,11 @@ html.wf-inactive body {
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+.entry-item.hide {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .entry-item {
     margin: 0 40px 40px 0;

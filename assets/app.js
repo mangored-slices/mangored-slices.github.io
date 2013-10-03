@@ -653,7 +653,7 @@ define('view.list', function() {
     ListView.prototype.render = function() {
       this.$el.masonry({
         columnWidth: 20,
-        itemSelector: "article"
+        itemSelector: "article:not(.hide)"
       });
       return this;
     };
@@ -693,10 +693,12 @@ define('view.list', function() {
 
     ListView.prototype.filterBy = function(service) {
       if (service) {
-        this.$(r('entry')).hide();
-        this.$(r('entry')).filter(".service-" + service).show();
+        this.$(r('entry')).addClass('hide');
+        this.$('.placeholder').addClass('hide');
+        this.$(r('entry')).filter(".service-" + service).removeClass('hide');
       } else {
-        this.$(r('entry')).show();
+        this.$(r('entry')).removeClass('hide');
+        this.$('.placeholder').removeClass('hide');
       }
       return this.relayout();
     };

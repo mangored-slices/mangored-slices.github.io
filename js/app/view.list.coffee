@@ -34,7 +34,7 @@ define 'view.list', ->
     render: ->
       @$el.masonry
         columnWidth: 20
-        itemSelector: "article"
+        itemSelector: "article:not(.hide)"
 
       this
 
@@ -67,10 +67,12 @@ define 'view.list', ->
 
     filterBy: (service) =>
       if service
-        @$(r 'entry').hide()
-        @$(r 'entry').filter(".service-#{service}").show()
+        @$(r 'entry').addClass('hide')
+        @$('.placeholder').addClass('hide')
+        @$(r 'entry').filter(".service-#{service}").removeClass('hide')
       else
-        @$(r 'entry').show()
+        @$(r 'entry').removeClass('hide')
+        @$('.placeholder').removeClass('hide')
 
       @relayout()
 
