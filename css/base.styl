@@ -199,21 +199,6 @@ html
         width: $cell
         height: $cell
 
-      // Custom sizes
-      @media (min-width: 768px)
-        &.w2
-          &, .image
-            width: ($cell * 2 + $gut * 1)
-        &.h2
-          &, .image
-            height: ($cell * 2 + $gut * 1)
-        &.w3
-          &, .image
-            width: ($cell * 3 + $gut * 2)
-        &.h3
-          &, .image
-            height: ($cell * 3 + $gut * 2)
-
 /* ----------------------------------------------------------------------------
  * Entry item
  */
@@ -228,6 +213,21 @@ html
   &.hide
     opacity: 0
     transition: opacity 300ms linear
+
+  // Custom sizes
+  @media (min-width: 768px)
+    &.w2
+      &, .image
+        width: ($cell * 2 + $gut * 1)
+    &.h2
+      &, .image
+        height: ($cell * 2 + $gut * 1)
+    &.w3
+      &, .image
+        width: ($cell * 3 + $gut * 2)
+    &.h3
+      &, .image
+        height: ($cell * 3 + $gut * 2)
 
   @media (min-width: 480px) /* Tablet & Desktop */
     margin: 0 $gut $gut 0
