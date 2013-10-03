@@ -40,13 +40,12 @@ define 'router.app', ->
       service = entry.source().name
       @title entry.toString()
       App.menuView.activate service
-      # @klass "entry"
 
       # Open the dialog
       new EntryDialogView(model: entry).render()
 
-    ###
-    # Changes the body class name.
+    ###*
+    * Changes the body class name.
     ###
     klass: (str) ->
       if m = $html.data('mode')
@@ -56,8 +55,8 @@ define 'router.app', ->
         .addClass(str)
         .data('mode', str)
 
-    ###
-    # Changes title.
+    ###*
+    * Changes title.
     ###
     title: (str) ->
       if str

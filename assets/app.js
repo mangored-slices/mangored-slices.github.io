@@ -355,8 +355,8 @@ define('router.app', function() {
       }).render();
     };
 
-    /*
-    # Changes the body class name.
+    /**
+    * Changes the body class name.
     */
 
 
@@ -368,8 +368,8 @@ define('router.app', function() {
       return $html.addClass(str).data('mode', str);
     };
 
-    /*
-    # Changes title.
+    /**
+    * Changes title.
     */
 
 
@@ -823,7 +823,7 @@ $(function() {
   $('html').addClass(isMobile ? 'mobile' : 'desktop');
   App.listView = new (require('view.list'))().render();
   App.menuView = new (require('view.menu'));
-  App.titleView = new (require('view.title'))().render();
+  $('[role~="title_view"]').remove();
   return App.loader.load(App.fetcher.fetch().done(function() {
     return Backbone.history.start();
   }));

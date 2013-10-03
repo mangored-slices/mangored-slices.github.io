@@ -34,6 +34,7 @@ assets/vendor.js: \
 	vendor/nprogress.js \
 	vendor/jquery.fillsize.js \
 	vendor/masonry.js \
+	vendor/jquery-cookie.js \
 	vendor/ndialog.js \
 	vendor/almond.js
 	cat $^ | $(uglify) -m > $@
