@@ -436,7 +436,8 @@ define('view.entry', function() {
 
     EntryView.prototype.initialize = function() {
       this.entry = this.options.entry;
-      return this.index = this.options.index;
+      this.index = this.options.index;
+      return this.media = this.options.media;
     };
 
     /** Renders the element
@@ -540,7 +541,9 @@ define('view.entry', function() {
         this.$(r('image')).append($("<img>").attr({
           src: src
         }));
-        return this.$(r('image')).fillsize("> img");
+        if (this.media.active) {
+          return this.$(r('image')).fillsize("> img");
+        }
       }
     };
 
@@ -670,14 +673,20 @@ define('view.list', function() {
       var _this = this;
       this.media = Harvey.attach('screen and (min-width: 480px)', {
         on: function() {
-          return _this.$el.addClass('masonry-layout').masonry({
+          _this.$el.addClass('masonry-layout').masonry({
             columnWidth: 20,
             itemSelector: "article:not(.hide)"
           });
+          return immediate(function() {
+            return _this.$(r('image')).fillsize('> img');
+          });
         },
         off: function() {
-          _this.$(r('image')).unfillsize();
-          return _this.$el.removeClass('masonry-layout').masonry('destroy');
+          _this.$el.removeClass('masonry-layout').masonry('destroy');
+          _this.$('article').removeAttr('style');
+          return immediate(function() {
+            return _this.$(r('image')).unfillsize();
+          });
         }
       });
       return this;
@@ -707,7 +716,8 @@ define('view.list', function() {
       view = new EntryView({
         entry: entry,
         index: i,
-        "class": (firstOfType ? 'active' : void 0)
+        "class": (firstOfType ? 'active' : void 0),
+        media: this.media
       });
       return $(document).queue(function(next) {
         var $ph;
@@ -757,14 +767,11 @@ define('view.list', function() {
 
 
     ListView.prototype.relayout = function() {
-      var _this = this;
-      return immediate(function() {
-        if (_this.media.active) {
-          _this.$el.masonry('reloadItems');
-          _this.$el.masonry();
-        }
-        return _this.$el.trigger('fillsize');
-      });
+      if (this.media.active) {
+        this.$el.masonry('reloadItems');
+        this.$el.masonry();
+        return this.$el.trigger('fillsize');
+      }
     };
 
     return ListView;

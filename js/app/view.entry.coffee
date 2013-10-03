@@ -9,6 +9,7 @@ define 'view.entry', ->
     initialize: ->
       @entry = @options.entry
       @index = @options.index
+      @media = @options.media  # Media query (Harvey)
 
     ###* Renders the element
     ###
@@ -82,7 +83,7 @@ define 'view.entry', ->
       src = @entry.get('image')
       if src
         @$(r 'image').append $("<img>").attr(src: src)
-        @$(r 'image').fillsize("> img")
+        @$(r 'image').fillsize("> img") if @media.active
 
     ###* HTML template
     ###

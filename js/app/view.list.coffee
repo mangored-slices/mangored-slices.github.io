@@ -47,11 +47,13 @@ define 'view.list', ->
             .masonry
               columnWidth: 20
               itemSelector: "article:not(.hide)"
+          immediate => @$(r 'image').fillsize('> img')
         off: =>
-          @$(r 'image').unfillsize()
           @$el
             .removeClass('masonry-layout')
             .masonry('destroy')
+          @$('article').removeAttr('style')
+          immediate => @$(r 'image').unfillsize()
 
       this
 
@@ -68,7 +70,7 @@ define 'view.list', ->
     add: (entry) =>
       i = @$el.children().length
       firstOfType = @$el.find(".service-#{entry.source().name}").length is 0
-      view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType))
+      view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType), media: @media)
 
       $(document).queue (next) =>
         @$el.append(view.render().el)
@@ -107,8 +109,7 @@ define 'view.list', ->
     ####
 
     relayout: ->
-      immediate =>
-        if @media.active
-          @$el.masonry('reloadItems')
-          @$el.masonry()
+      if @media.active
+        @$el.masonry('reloadItems')
+        @$el.masonry()
         @$el.trigger('fillsize')
