@@ -676,6 +676,7 @@ define('view.list', function() {
           });
         },
         off: function() {
+          _this.$(r('image')).unfillsize();
           return _this.$el.removeClass('masonry-layout').masonry('destroy');
         }
       });

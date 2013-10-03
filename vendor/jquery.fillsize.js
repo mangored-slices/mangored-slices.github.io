@@ -13,9 +13,15 @@
 // really), and `overflow: hidden`.
 
 (function($) {
+  var count = 0;
+
   $.fn.fillsize = function(selector) {
+
     var $parent = this;
     var $img;
+
+    // Event tag to use
+    var tag = ".fillsize.fillsize-"+(count++);
 
     function resize() {
       if (!$img) $img = $parent.find(selector);
@@ -51,18 +57,22 @@
       });
     }
 
+    // Save the tag for later unbinding.
+    $parent.data('fillsize:tag', tag);
+    $parent.data('fillsize:selector', selector);
+
     // Make it happen on window resize.
-    $(window).resize(resize);
+    $(window).on('resize'+tag, resize);
 
     // Allow manual invocation by doing `.trigger('fillsize')` on the container.
-    $(document).on('fillsize', $parent.selector, resize);
+    $(parent).on('fillsize'+tag, resize);
 
     // Resize on first load (or immediately if called after).
     $(function() {
       // If the child is an image, fill it up when image's real dimensions are
       // first determined. Needs to be .bind() because the load event will
       // bubble up.
-      $(selector, $parent).bind('load', function() {
+      $(selector, $parent).bind('load'+tag, function() {
         setTimeout(resize, 25);
       });
 
@@ -71,4 +81,24 @@
 
     return this;
   };
+
+  /**
+   * Destroys a fillsize.
+   *
+   *     $('.container').unfillsize();
+   */
+  $.fn.unfillsize = function() {
+    var tag = this.data('fillsize:tag');
+    var selector = this.data('fillsize:selector');
+    if (!tag) return;
+
+    // Unbind events
+    this.off(tag);
+    $(window).off(tag);
+    $(selector, this).unbind(tag);
+
+    // Undo image stuff
+    $(selector, this).removeAttr('style');
+  };
+
 })(jQuery);

@@ -48,6 +48,7 @@ define 'view.list', ->
               columnWidth: 20
               itemSelector: "article:not(.hide)"
         off: =>
+          @$(r 'image').unfillsize()
           @$el
             .removeClass('masonry-layout')
             .masonry('destroy')
