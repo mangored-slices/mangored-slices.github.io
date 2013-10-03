@@ -240,10 +240,6 @@ html
   &, .image, .meta
     box-sizing: border-box
 
-  .meta
-    max-height: 100%
-    overflow: hidden
-
   // Invisible link
   a.link
     display: block
@@ -258,12 +254,17 @@ html
     font-weight: bold
     font-size: 0.9em
 
+.entry-text
+  .meta
+    max-height: 100%
+    -webkit-mask-image: -webkit-gradient(linear, left 80%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+
 /* ----------------------------------------------------------------------------
  * Image entries
  */
 
 .entry-image
-  .image, .meta
+  .image
     display: block
     absolute: 0 0
     width: 100%
@@ -277,12 +278,13 @@ html
     transition: all $spd ease
     transform: scale(0.95) translate3d(0,0,0)
     position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-    right: 0
+    top: -10px
+    left: -10px
+    bottom: -10px
+    right: -10px
 
     background: rgba($red, $hover-strength)
+    overflow: hidden
 
   .meta > div
     padding: 20px
@@ -313,7 +315,7 @@ html
   .meta .date-ago:before
     small-hr(15px, white)
 
-  &:hover
+  &:hover, &.active
     .meta
       transform: scale(1.0) translate3d(0,0,0)
       opacity: 1
