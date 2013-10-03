@@ -209,10 +209,18 @@ html
     transition: opacity 300ms linear 300ms
     opacity: 1
     transform: translate3d(0,0,0)
+    position: relative
 
   &.hide
     opacity: 0
     transition: opacity 300ms linear
+
+  // Placeholders
+  &.placeholder
+    display: none
+
+    @media (min-width: 768px) /* Desktop */
+      display: block
 
   // Custom sizes
   @media (min-width: 768px)
@@ -231,8 +239,6 @@ html
 
   @media (min-width: 480px) /* Tablet & Desktop */
     margin: 0 $gut $gut 0
-
-  position: relative
 
   .image
     background: rgba(black, 0.1)

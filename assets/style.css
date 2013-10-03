@@ -413,9 +413,6 @@ html.wf-inactive body {
  * Entry item
  */
 .entry-item {
-  position: relative;
-}
-.entry-item {
   margin: 0 0 10px 0;
   -webkit-transition: opacity 300ms linear 300ms;
   -moz-transition: opacity 300ms linear 300ms;
@@ -430,6 +427,7 @@ html.wf-inactive body {
   -o-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  position: relative;
 }
 .entry-item.hide {
   opacity: 0;
@@ -440,6 +438,14 @@ html.wf-inactive body {
   -o-transition: opacity 300ms linear;
   -ms-transition: opacity 300ms linear;
   transition: opacity 300ms linear;
+}
+.entry-item.placeholder {
+  display: none;
+}
+@media (min-width: 768px) /* Desktop */ {
+  .entry-item.placeholder {
+    display: block;
+  }
 }
 @media (min-width: 768px) {
   .entry-item.w2,
