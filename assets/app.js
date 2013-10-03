@@ -644,7 +644,7 @@ define('view.list', function() {
     /** Projected speed of relayouting*/
 
 
-    ListView.prototype.speed = 300;
+    ListView.prototype.speed = 1000;
 
     /** Spacing between items (0..1)*/
 

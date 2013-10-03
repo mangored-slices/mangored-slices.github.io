@@ -253,6 +253,7 @@ html.wf-inactive body {
 }
 .service .main-heading .logo {
   color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .main-heading .logo,
 .main-heading .menu {
@@ -345,11 +346,13 @@ html.wf-inactive body {
   transition: opacity 50ms linear;
 }
 .menu a:hover,
-.menu a.active {
+.menu a.active,
+.main-heading:hover .menu a /* <- remove this selector to enable the old style */ {
   width: 100px;
 }
 .menu a:hover span,
-.menu a.active span {
+.menu a.active span,
+.main-heading:hover .menu a /* <- remove this selector to enable the old style */ span {
   opacity: 1;
   -ms-filter: none;
   filter: none;
@@ -358,6 +361,20 @@ html.wf-inactive body {
   -o-transition: opacity 50ms linear 130ms;
   -ms-transition: opacity 50ms linear 130ms;
   transition: opacity 50ms linear 130ms;
+}
+.menu a:hover:hover i,
+.menu a.active:hover i,
+.main-heading:hover .menu a /* <- remove this selector to enable the old style */:hover i {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.menu a:hover.active i,
+.menu a.active.active i,
+.main-heading:hover .menu a /* <- remove this selector to enable the old style */.active i {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 /* ----------------------------------------------------------------------------
  * Entry listing
