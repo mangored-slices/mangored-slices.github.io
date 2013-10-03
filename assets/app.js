@@ -641,6 +641,16 @@ define('view.list', function() {
 
     ListView.prototype.masonry = null;
 
+    /** Projected speed of relayouting*/
+
+
+    ListView.prototype.speed = 300;
+
+    /** Spacing between items (0..1)*/
+
+
+    ListView.prototype.scatter = 0.25;
+
     /** Constructor
     */
 
@@ -678,7 +688,8 @@ define('view.list', function() {
 
 
     ListView.prototype.add = function(entry) {
-      var $ph, firstOfType, i, view;
+      var firstOfType, i, view,
+        _this = this;
       i = this.$el.children().length;
       firstOfType = this.$el.find(".service-" + (entry.source().name)).length === 0;
       view = new EntryView({
@@ -686,24 +697,32 @@ define('view.list', function() {
         index: i,
         "class": (firstOfType ? 'active' : void 0)
       });
-      this.$el.append(view.render().el).masonry('appended', view.$el);
-      if (Math.random() < 0.3) {
-        $ph = $("<article class='entry-item h1 w1 placeholder'></article>");
-        this.$el.append($ph).masonry('appended', $ph);
-      }
-      return this.relayout();
+      return $(document).queue(function(next) {
+        var $ph;
+        _this.$el.append(view.render().el).masonry('appended', view.$el);
+        if (Math.random() < _this.scatter) {
+          $ph = $("<article class='entry-item h1 w1 placeholder'></article>");
+          _this.$el.append($ph).masonry('appended', $ph);
+        }
+        _this.relayout();
+        return next();
+      });
     };
 
     ListView.prototype.filterBy = function(service) {
-      if (service) {
-        this.$(r('entry')).addClass('hide');
-        this.$('.placeholder').addClass('hide');
-        this.$(r('entry')).filter(".service-" + service).removeClass('hide');
-      } else {
-        this.$(r('entry')).removeClass('hide');
-        this.$('.placeholder').removeClass('hide');
-      }
-      return this.relayout();
+      var _this = this;
+      return $(document).queue(function(next) {
+        if (service) {
+          _this.$(r('entry')).addClass('hide');
+          _this.$('.placeholder').addClass('hide');
+          _this.$(r('entry')).filter(".service-" + service).removeClass('hide');
+        } else {
+          _this.$(r('entry')).removeClass('hide');
+          _this.$('.placeholder').removeClass('hide');
+        }
+        _this.relayout();
+        return setTimeout(next, _this.speed);
+      });
     };
 
     /** Update layouts

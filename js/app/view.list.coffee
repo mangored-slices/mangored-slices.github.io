@@ -21,6 +21,12 @@ define 'view.list', ->
     ###* Masonry instance ###
     masonry: null
 
+    ###* Projected speed of relayouting ###
+    speed: 300
+
+    ###* Spacing between items (0..1) ###
+    scatter: 0.25
+
     ###* Constructor
     ###
 
@@ -53,28 +59,32 @@ define 'view.list', ->
       firstOfType = @$el.find(".service-#{entry.source().name}").length is 0
       view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType))
 
-      @$el
-        .append(view.render().el)
-        .masonry('appended', view.$el)
-
-      if Math.random() < 0.3
-        $ph = $("<article class='entry-item h1 w1 placeholder'></article>")
+      $(document).queue (next) =>
         @$el
-          .append($ph)
-          .masonry('appended', $ph)
+          .append(view.render().el)
+          .masonry('appended', view.$el)
 
-      @relayout()
+        if Math.random() < @scatter
+          $ph = $("<article class='entry-item h1 w1 placeholder'></article>")
+          @$el
+            .append($ph)
+            .masonry('appended', $ph)
+
+        @relayout()
+        next()
 
     filterBy: (service) =>
-      if service
-        @$(r 'entry').addClass('hide')
-        @$('.placeholder').addClass('hide')
-        @$(r 'entry').filter(".service-#{service}").removeClass('hide')
-      else
-        @$(r 'entry').removeClass('hide')
-        @$('.placeholder').removeClass('hide')
+      $(document).queue (next) =>
+        if service
+          @$(r 'entry').addClass('hide')
+          @$('.placeholder').addClass('hide')
+          @$(r 'entry').filter(".service-#{service}").removeClass('hide')
+        else
+          @$(r 'entry').removeClass('hide')
+          @$('.placeholder').removeClass('hide')
 
-      @relayout()
+        @relayout()
+        setTimeout next, @speed
 
     ###* Update layouts
     ####
