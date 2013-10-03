@@ -673,19 +673,25 @@ define('view.list', function() {
       var _this = this;
       this.media = Harvey.attach('screen and (min-width: 480px)', {
         on: function() {
-          _this.$el.addClass('masonry-layout').masonry({
-            columnWidth: 20,
-            itemSelector: "article:not(.hide)"
-          });
-          return immediate(function() {
-            return _this.$(r('image')).fillsize('> img');
+          return $(document).queue(function(next) {
+            _this.$el.addClass('masonry-layout').masonry({
+              columnWidth: 20,
+              itemSelector: "article:not(.hide)"
+            });
+            immediate(function() {
+              return _this.$(r('image')).fillsize('> img');
+            });
+            return next();
           });
         },
         off: function() {
-          _this.$el.removeClass('masonry-layout').masonry('destroy');
-          _this.$('article').removeAttr('style');
-          return immediate(function() {
-            return _this.$(r('image')).unfillsize();
+          return $(document).queue(function(next) {
+            _this.$el.removeClass('masonry-layout').masonry('destroy');
+            _this.$('article').removeAttr('style');
+            immediate(function() {
+              return _this.$(r('image')).unfillsize();
+            });
+            return next();
           });
         }
       });

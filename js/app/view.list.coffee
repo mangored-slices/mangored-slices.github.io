@@ -42,18 +42,22 @@ define 'view.list', ->
       # Activate masonry on tablet/desktop, and off on mobile.
       @media = Harvey.attach 'screen and (min-width: 480px)',
         on: =>
-          @$el
-            .addClass('masonry-layout')
-            .masonry
-              columnWidth: 20
-              itemSelector: "article:not(.hide)"
-          immediate => @$(r 'image').fillsize('> img')
+          $(document).queue (next) =>
+            @$el
+              .addClass('masonry-layout')
+              .masonry
+                columnWidth: 20
+                itemSelector: "article:not(.hide)"
+            immediate => @$(r 'image').fillsize('> img')
+            next()
         off: =>
-          @$el
-            .removeClass('masonry-layout')
-            .masonry('destroy')
-          @$('article').removeAttr('style')
-          immediate => @$(r 'image').unfillsize()
+          $(document).queue (next) =>
+            @$el
+              .removeClass('masonry-layout')
+              .masonry('destroy')
+            @$('article').removeAttr('style')
+            immediate => @$(r 'image').unfillsize()
+            next()
 
       this
 
