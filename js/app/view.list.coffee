@@ -33,6 +33,7 @@ define 'view.list', ->
 
     render: ->
       @$el.masonry
+        columnWidth: 20
         itemSelector: "article"
 
       this

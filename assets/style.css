@@ -367,22 +367,22 @@ html.wf-inactive body {
 }
 @media (min-width: 480px) {
   .listing-page {
-    width: 430px;
+    width: 440px;
   }
 }
 @media (min-width: 768px) {
   .listing-page {
-    width: 660px;
+    width: 680px;
   }
 }
 @media (min-width: 1024px) {
   .listing-page {
-    width: 890px;
+    width: 920px;
   }
 }
 @media (min-width: 1280px) {
   .listing-page {
-    width: 1120px;
+    width: 1160px;
   }
 }
 .entry-list {
@@ -398,7 +398,7 @@ html.wf-inactive body {
 }
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .entry-list {
-    margin-right: -30px;
+    margin-right: -40px;
   }
   .entry-list .entry-item {
     float: left;
@@ -411,19 +411,19 @@ html.wf-inactive body {
 @media (min-width: 768px) {
     .entry-list .entry-item.w2,
     .entry-list .entry-item.w2 .image {
-      width: 430px;
+      width: 440px;
     }
     .entry-list .entry-item.h2,
     .entry-list .entry-item.h2 .image {
-      height: 430px;
+      height: 440px;
     }
     .entry-list .entry-item.w3,
     .entry-list .entry-item.w3 .image {
-      width: 660px;
+      width: 680px;
     }
     .entry-list .entry-item.h3,
     .entry-list .entry-item.h3 .image {
-      height: 660px;
+      height: 680px;
     }
 }
 }
@@ -451,7 +451,7 @@ html.wf-inactive body {
 }
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .entry-item {
-    margin: 0 30px 30px 0;
+    margin: 0 40px 40px 0;
   }
 }
 .entry-item .image {
@@ -609,6 +609,13 @@ html.wf-inactive body {
 }
 .entry-text .date-ago {
   display: none;
+}
+/*
+ * Debug mode
+ */
+.debug article,
+.debug .entry-list {
+  outline: solid 1px #0ff;
 }
 
 /* ----------------------------------------------------------------------------

@@ -652,6 +652,7 @@ define('view.list', function() {
 
     ListView.prototype.render = function() {
       this.$el.masonry({
+        columnWidth: 20,
         itemSelector: "article"
       });
       return this;
