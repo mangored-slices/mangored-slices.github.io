@@ -5,9 +5,9 @@ $zip = cubic-bezier(0,0.9,0.2,1)
 
 @keyframes bounce
   0%
-    transform: translate3d(0, 0, 0)
-  100%
     transform: translate3d(0, -20px, 0)
+  100%
+    transform: translate3d(0, 0, 0)
 
 @keyframes spin
   0%
@@ -123,7 +123,7 @@ $zip = cubic-bezier(0,0.9,0.2,1)
       left: 50%
       animation: bounce 400ms $zip infinite alternate-reverse
 
-      opacity: 0.5
+      opacity: 0.9
 
       &:before, &:after
         content: ''
