@@ -28,6 +28,9 @@ define 'view.list', ->
     ###* Spacing between items (0..1) ###
     scatter: 0.25
 
+    ###* EntryView instances, indexed by cid ###
+    entryViews: {}
+
     ###* Constructor
     ###
 
@@ -74,7 +77,9 @@ define 'view.list', ->
     add: (entry) =>
       i = @$el.children().length
       firstOfType = @$el.find(".service-#{entry.source().name}").length is 0
+
       view = new EntryView(entry: entry, index: i, class: ('active' if firstOfType), media: @media)
+      @entryViews[view.cid] = view
 
       $(document).queue (next) =>
         @$el.append(view.render().el)

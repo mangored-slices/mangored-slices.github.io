@@ -37,9 +37,27 @@ define 'view.entry', ->
     renderCommon: ->
       @$el.attr 'role', 'entry'
       @$(r 'link').attr href: "#e/#{@entry.slug()}"
-      @$(r 'text').html @entry.get('text')
+      @$(r 'text').append @text()
       @$(r 'date').html @entry.date('long')
       @$(r 'date_ago').html @entry.date('ago')
+
+    ###* Returns HTML nodes to append to text
+    ###
+    text: ->
+      st = _.str.stripTags
+
+      title = @entry.get('text')
+      body = @entry.get('fulltext')
+
+      if body and body.length > 0
+        $el = $("<strong class='text-title'></strong> <span class='text-body'></span>")
+        $el.filter('.text-title').html(st(title))
+        $el.filter('.text-body').html(st(body))
+      else
+        $el = $("<span class='text-body'>").html(st(title))
+
+      $el
+
 
     ###* Updates size classes (.w-1.h-2)
     ###

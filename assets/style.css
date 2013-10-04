@@ -517,11 +517,24 @@ html.wf-inactive body {
   font-weight: bold;
   font-size: 0.9em;
 }
+/* ----------------------------------------------------------------------------
+ * Text entries
+ */
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .entry-text .meta {
     max-height: 100%;
     -webkit-mask-image: -webkit-gradient(linear, left 80%, left bottom, from(#000), to(rgba(0,0,0,0)));
   }
+}
+.entry-text .text strong {
+  font-weight: bold;
+}
+.entry-text .text strong:after {
+  content: '—';
+  margin-left: 0.4em;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
 }
 /* ----------------------------------------------------------------------------
  * Image entries
@@ -1144,8 +1157,13 @@ html.wf-inactive body {
   max-width: 400px;
 }
 .entry-dialog .meta .right {
-  color: #999;
   margin-left: 20px;
+}
+.entry-dialog .permalink {
+  color: #999;
+}
+.entry-dialog .permalink:hover {
+  color: #222;
 }
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .entry-dialog .meta .left {

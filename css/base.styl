@@ -272,11 +272,24 @@ html
     font-weight: bold
     font-size: 0.9em
 
+/* ----------------------------------------------------------------------------
+ * Text entries
+ */
+
 .entry-text
   @media (min-width: 480px) /* Tablet & Desktop */
     .meta
       max-height: 100%
       -webkit-mask-image: -webkit-gradient(linear, left 80%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+
+  // Text
+  .text strong
+    font-weight: bold
+    &:after
+      content: '—'
+      margin-left: 0.4em
+      opacity: 0.5
+
 
 /* ----------------------------------------------------------------------------
  * Image entries
