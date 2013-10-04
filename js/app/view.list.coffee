@@ -1,4 +1,5 @@
 define 'view.list', ->
+
   r = (role) -> "[role~='#{role}']"
   immediate = (fn) -> setTimeout fn, 0
 
@@ -50,7 +51,7 @@ define 'view.list', ->
               .addClass('masonry-layout')
               .masonry
                 columnWidth: 20
-                itemSelector: "article:not(.hide)"
+                itemSelector: "article.show"
             immediate => @$(r 'image').fillsize('> img')
             next()
         off: =>
@@ -101,14 +102,17 @@ define 'view.list', ->
     ###
 
     filterBy: (service) =>
+      hide = ($el) -> $el.addClass('hide').removeClass('show')
+      show = ($el) -> $el.addClass('show').removeClass('hide')
+
       $(document).queue (next) =>
         if service
-          @$(r 'entry').addClass('hide')
-          @$('.placeholder').addClass('hide')
-          @$(r 'entry').filter(".service-#{service}").removeClass('hide')
+          hide @$(r 'entry')
+          hide @$('.placeholder')
+          show @$(r 'entry').filter(".service-#{service}")
         else
-          @$(r 'entry').removeClass('hide')
-          @$('.placeholder').removeClass('hide')
+          show @$(r 'entry')
+          show @$('.placeholder')
 
         @relayout()
         setTimeout next, @speed

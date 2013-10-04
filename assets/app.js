@@ -700,7 +700,7 @@ define('view.list', function() {
           return $(document).queue(function(next) {
             _this.$el.addClass('masonry-layout').masonry({
               columnWidth: 20,
-              itemSelector: "article:not(.hide)"
+              itemSelector: "article.show"
             });
             immediate(function() {
               return _this.$(r('image')).fillsize('> img');
@@ -777,15 +777,22 @@ define('view.list', function() {
 
 
     ListView.prototype.filterBy = function(service) {
-      var _this = this;
+      var hide, show,
+        _this = this;
+      hide = function($el) {
+        return $el.addClass('hide').removeClass('show');
+      };
+      show = function($el) {
+        return $el.addClass('show').removeClass('hide');
+      };
       return $(document).queue(function(next) {
         if (service) {
-          _this.$(r('entry')).addClass('hide');
-          _this.$('.placeholder').addClass('hide');
-          _this.$(r('entry')).filter(".service-" + service).removeClass('hide');
+          hide(_this.$(r('entry')));
+          hide(_this.$('.placeholder'));
+          show(_this.$(r('entry')).filter(".service-" + service));
         } else {
-          _this.$(r('entry')).removeClass('hide');
-          _this.$('.placeholder').removeClass('hide');
+          show(_this.$(r('entry')));
+          show(_this.$('.placeholder'));
         }
         _this.relayout();
         return setTimeout(next, _this.speed);
