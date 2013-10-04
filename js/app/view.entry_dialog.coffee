@@ -39,6 +39,7 @@ define 'view.entry_dialog', ->
         <button class='close' role='close'></button>
         <div class='image'>
           <img src='' role='image_lores' class='lores'>
+          <span class='spinner'><i></i></span>
           <img src='' role='image_hires' class='hires'>
         </div>
         <div class='meta'>

@@ -16,6 +16,24 @@ $zip = cubic-bezier(0,0.9,0.2,1)
     transform: rotate(360deg)
 
 /* ----------------------------------------------------------------------------
+ * Loading spinner
+ */
+
+.spinner
+  &
+    display: block
+
+  & i
+    display: block
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    border: solid 2px transparent
+    border-top-color: $red
+    border-left-color: $red
+    animation: spin 400ms linear infinite
+
+/* ----------------------------------------------------------------------------
  * Title card (section.title-card)
  * The main title that's shown on top.
  */
@@ -99,16 +117,6 @@ $zip = cubic-bezier(0,0.9,0.2,1)
       display: block
       margin-left: (-0.5 * 24px)
       margin-top: (-0.5 * 24px)
-
-    .spinner i
-      display: block
-      width: 24px
-      height: 24px
-      border-radius: 50%
-      border: solid 2px transparent
-      border-top-color: $red
-      border-left-color: $red
-      animation: spin 800ms linear infinite
 
     // Spinner: hide when loaded
     .loaded & .spinner

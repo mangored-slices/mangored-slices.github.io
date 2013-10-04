@@ -682,6 +682,27 @@ html.wf-inactive body {
 }
 
 /* ----------------------------------------------------------------------------
+ * Loading spinner
+ */
+.spinner {
+  display: block;
+}
+.spinner i {
+  display: block;
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: solid 2px transparent;
+  border-top-color: #b53c39;
+  border-left-color: #b53c39;
+  -webkit-animation: spin 400ms linear infinite;
+  -moz-animation: spin 400ms linear infinite;
+  -o-animation: spin 400ms linear infinite;
+  -ms-animation: spin 400ms linear infinite;
+  animation: spin 400ms linear infinite;
+}
+/* ----------------------------------------------------------------------------
  * Title card (section.title-card)
  * The main title that's shown on top.
  */
@@ -775,21 +796,6 @@ html.wf-inactive body {
     display: block;
     margin-left: -12px;
     margin-top: -12px;
-  }
-  .title-card .spinner i {
-    display: block;
-    width: 24px;
-    height: 24px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    border: solid 2px transparent;
-    border-top-color: #b53c39;
-    border-left-color: #b53c39;
-    -webkit-animation: spin 800ms linear infinite;
-    -moz-animation: spin 800ms linear infinite;
-    -o-animation: spin 800ms linear infinite;
-    -ms-animation: spin 800ms linear infinite;
-    animation: spin 800ms linear infinite;
   }
   .loaded .title-card .spinner {
     display: none;
@@ -1125,7 +1131,7 @@ html.wf-inactive body {
 }
 .entry-dialog .image {
   position: relative;
-  background: #333;
+  background: #eee;
   margin-bottom: 20px;
 }
 .entry-dialog .image img.lores {
@@ -1135,12 +1141,20 @@ html.wf-inactive body {
   filter: alpha(opacity=8);
   z-index: 0;
 }
+.entry-dialog .image .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  margin-right: -12px;
+  z-index: 1;
+}
 .entry-dialog .image img.hires {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .entry-dialog .meta {
   zoom: 1;

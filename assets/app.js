@@ -614,7 +614,7 @@ define('view.entry_dialog', function() {
       return this;
     };
 
-    EntryDialogView.prototype.template = "<div>\n  <button class='close' role='close'></button>\n  <div class='image'>\n    <img src='' role='image_lores' class='lores'>\n    <img src='' role='image_hires' class='hires'>\n  </div>\n  <div class='meta'>\n    <div class='right'>\n      <a href='' class='permalink' role='date'></a>\n    </div>\n    <div class='left' role='title'>\n    </div>\n  </div>\n</div>";
+    EntryDialogView.prototype.template = "<div>\n  <button class='close' role='close'></button>\n  <div class='image'>\n    <img src='' role='image_lores' class='lores'>\n    <span class='spinner'><i></i></span>\n    <img src='' role='image_hires' class='hires'>\n  </div>\n  <div class='meta'>\n    <div class='right'>\n      <a href='' class='permalink' role='date'></a>\n    </div>\n    <div class='left' role='title'>\n    </div>\n  </div>\n</div>";
 
     return EntryDialogView;
 

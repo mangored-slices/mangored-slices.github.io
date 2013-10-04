@@ -79,7 +79,7 @@ close-button($size=40px, $color=#333, $pad=10px)
 
   .image
     position: relative
-    background: #333
+    background: $grey
     margin-bottom: 20px
 
   .image img.lores
@@ -87,12 +87,20 @@ close-button($size=40px, $color=#333, $pad=10px)
     opacity: 0.08
     z-index: 0
 
+  .image .spinner
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-left: -12px
+    margin-right: -12px
+    z-index: 1
+
   .image img.hires
     position: absolute
     top: 0
     left: 0
     width: 100%
-    z-index: 1
+    z-index: 2
 
   .meta
     clearfix()
