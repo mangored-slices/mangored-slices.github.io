@@ -575,6 +575,12 @@ html.wf-inactive body {
     height: 100%;
   }
 }
+@media (max-width: 480px) /* Mobile */ {
+  .entry-image .image img {
+    width: 100%;
+    margin: 0 0 -10px 0;
+  }
+}
 .entry-image .date {
   display: none;
 }
