@@ -1,13 +1,13 @@
 {
   "range": {
-    "from": "2013-08-22T10:42:19.000Z",
+    "from": "2013-08-22T13:51:36.000Z",
     "to": "2013-10-04T00:54:25.000Z"
   },
   "sources": [
     {
       "name": "instagram",
       "service": "instagram",
-      "updated_at": "2013-10-04T08:54:21+00:00",
+      "updated_at": "2013-10-04T09:54:48+00:00",
       "username": "mangored_studios",
       "displayName": "mangored_studios",
       "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -18,7 +18,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -35,7 +35,24 @@
       "source": {
         "name": "tumblr",
         "service": "tumblr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
+        "username": "mangoredslices",
+        "displayName": "Slices",
+        "photo": null
+      },
+      "date": "2013-10-04T00:00:00+00:00",
+      "image": "http://25.media.tumblr.com/03ca3a17896a45261d1eabf802b11a0e/tumblr_mu4zudjw6B1sstblto1_500.jpg",
+      "image_large": "http://31.media.tumblr.com/03ca3a17896a45261d1eabf802b11a0e/tumblr_mu4zudjw6B1sstblto1_1280.jpg",
+      "image_ratio": 1.5748031496063,
+      "text": "Sunflowers",
+      "fulltext": null,
+      "url": "http://mangoredslices.tumblr.com/post/63070870621/sunflowers"
+    },
+    {
+      "source": {
+        "name": "tumblr",
+        "service": "tumblr",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredslices",
         "displayName": "Slices",
         "photo": null
@@ -45,14 +62,14 @@
       "image_large": null,
       "image_ratio": null,
       "text": "Welcome to Slices",
-      "fulltext": "<p>We&#8217;d like to welcome you to Slices, a delicious serving of different moments. It&#8217;s a collection of  images and words from MangoRed&#8217;s online presence. Hope you&#8217;ll love the website! Cheers!</p>",
+      "fulltext": "<p>We&#8217;d like to welcome you to Slices, a delicious serving of different moments. It&#8217;s a collection of  images and words from MangoRed&#8217;s online presence. Hope you&#8217;ll love the website! Cheers!</p>",
       "url": "http://mangoredslices.tumblr.com/post/63003709639/welcome-to-slices"
     },
     {
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -69,7 +86,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -86,7 +103,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -103,7 +120,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -120,7 +137,7 @@
       "source": {
         "name": "twitter",
         "service": "twitter",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoREDstudios",
         "displayName": "mangoRED",
         "photo": "https://si0.twimg.com/profile_images/1169792574/LOGO_JT__normal.jpg"
@@ -137,7 +154,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -154,7 +171,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -171,7 +188,7 @@
       "source": {
         "name": "twitter",
         "service": "twitter",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoREDstudios",
         "displayName": "mangoRED",
         "photo": "https://si0.twimg.com/profile_images/1169792574/LOGO_JT__normal.jpg"
@@ -188,7 +205,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -205,7 +222,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -222,7 +239,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -239,7 +256,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -256,7 +273,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -273,7 +290,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -290,7 +307,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -307,7 +324,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -324,7 +341,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -341,7 +358,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -358,7 +375,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -375,7 +392,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -392,7 +409,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -409,7 +426,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -426,7 +443,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -443,7 +460,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -460,7 +477,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -477,7 +494,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -494,7 +511,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -511,7 +528,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -528,7 +545,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -545,7 +562,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -562,7 +579,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -579,7 +596,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -596,7 +613,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -613,7 +630,7 @@
       "source": {
         "name": "instagram",
         "service": "instagram",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangored_studios",
         "displayName": "mangored_studios",
         "photo": "http://images.ak.instagram.com/profiles/profile_194635990_75sq_1359416874.jpg"
@@ -630,7 +647,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -647,7 +664,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -664,7 +681,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -681,7 +698,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -698,7 +715,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -715,7 +732,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -732,7 +749,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -749,7 +766,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -766,7 +783,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -783,7 +800,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -800,7 +817,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -817,7 +834,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -834,7 +851,7 @@
       "source": {
         "name": "flickr",
         "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
+        "updated_at": "2013-10-04T09:54:48+00:00",
         "username": "mangoredryan",
         "displayName": "",
         "photo": null
@@ -846,23 +863,6 @@
       "text": "ESP-45b",
       "fulltext": "",
       "url": "http://www.flickr.com/photos/86566603@N04/9570717922/"
-    },
-    {
-      "source": {
-        "name": "flickr",
-        "service": "flickr",
-        "updated_at": "2013-10-04T08:54:21+00:00",
-        "username": "mangoredryan",
-        "displayName": "",
-        "photo": null
-      },
-      "date": "2013-08-22T10:42:19+00:00",
-      "image": "http://farm3.staticflickr.com/2870/9567109615_d519b24435.jpg",
-      "image_large": null,
-      "image_ratio": 1.44578313253012,
-      "text": "ESP-38e",
-      "fulltext": "",
-      "url": "http://www.flickr.com/photos/86566603@N04/9567109615/"
     }
   ]
 }
