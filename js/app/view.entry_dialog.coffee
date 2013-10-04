@@ -26,6 +26,7 @@ define 'view.entry_dialog', ->
 
       @$el.find(r 'date')
         .text(@model.date('ago'))
+        .attr('href', @model.get('url') or @model.get('image'))
 
       @dialog
         .on('close', -> history.back())
@@ -41,7 +42,8 @@ define 'view.entry_dialog', ->
           <img src='' role='image_hires' class='hires'>
         </div>
         <div class='meta'>
-          <div class='right' role='date'>
+          <div class='right'>
+            <a href='' class='permalink' role='date'></a>
           </div>
           <div class='left' role='title'>
           </div>
