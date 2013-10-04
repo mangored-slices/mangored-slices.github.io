@@ -274,6 +274,11 @@ html.wf-inactive body {
 .menu:after {
   clear: both;
 }
+@media (max-width: 480px) /* Mobile */ {
+  .menu {
+    display: none;
+  }
+}
 .menu a {
   float: left;
   margin-right: 0;
