@@ -39,6 +39,7 @@ define 'view.entry', ->
       @$(r 'link').attr href: "#e/#{@entry.slug()}"
       @$(r 'text').append @text()
       @$(r 'date').html @entry.date('long')
+      @$(r 'date').attr href: @entry.get('url')
       @$(r 'date_ago').html @entry.date('ago')
 
     ###* Returns HTML nodes to append to text
@@ -112,7 +113,7 @@ define 'view.entry', ->
       </div>
       <div class='meta'>
         <div>
-          <div class='date' role='date'></div>
+          <a class='date' role='date'></a>
           <div class='text' role='text'></div>
           <div class='date-ago' role='date_ago'></div>
         </div>

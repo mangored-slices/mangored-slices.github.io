@@ -477,6 +477,9 @@ define('view.entry', function() {
       });
       this.$(r('text')).append(this.text());
       this.$(r('date')).html(this.entry.date('long'));
+      this.$(r('date')).attr({
+        href: this.entry.get('url')
+      });
       return this.$(r('date_ago')).html(this.entry.date('ago'));
     };
 
@@ -570,7 +573,7 @@ define('view.entry', function() {
     */
 
 
-    EntryView.prototype.template = "<a class='link' href='#' role='link'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div>\n    <div class='date' role='date'></div>\n    <div class='text' role='text'></div>\n    <div class='date-ago' role='date_ago'></div>\n  </div>\n</div>";
+    EntryView.prototype.template = "<a class='link' href='#' role='link'></a>\n<div class='image' role='image'>\n</div>\n<div class='meta'>\n  <div>\n    <a class='date' role='date'></a>\n    <div class='text' role='text'></div>\n    <div class='date-ago' role='date_ago'></div>\n  </div>\n</div>";
 
     return EntryView;
 
