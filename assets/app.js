@@ -585,7 +585,7 @@ define('view.entry_dialog', function() {
       this.$el.find(r('image_lores')).attr({
         src: this.model.get('image'),
         width: width,
-        height: width * parseFloat(this.model.get('image_ratio'), 10)
+        height: width / parseFloat(this.model.get('image_ratio'), 10)
       });
       this.$el.find(r('title')).text(this.model.toString());
       this.$el.find(r('date')).text(this.model.date('ago'));

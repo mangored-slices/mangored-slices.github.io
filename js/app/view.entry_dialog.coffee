@@ -19,7 +19,7 @@ define 'view.entry_dialog', ->
       @$el.find(r 'image_lores').attr
         src: @model.get('image')
         width: width
-        height: width * parseFloat(@model.get('image_ratio'), 10)
+        height: width / parseFloat(@model.get('image_ratio'), 10)
 
       @$el.find(r 'title')
         .text(@model.toString())
