@@ -371,10 +371,17 @@ html
   .meta .date-ago:before
     small-hr(15px, white)
 
-  &:hover, &.active
-    .meta
-      transform: scale(1.0) translate3d(0,0,0)
-      opacity: 1
+  @media (min-width: 480px) /* Tablet & Desktop */
+    &:hover, &.active
+      .meta
+        transform: scale(1.0) translate3d(0,0,0)
+        opacity: 1
+
+    // Disappear on hover of first-of-type
+    &.active:hover
+      .meta
+        transform: scale(0.95) translate3d(0,0,0)
+        opacity: 0
 
   // Extra text sizes
   @media (min-width: 768px) /* Desktop */

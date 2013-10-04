@@ -649,16 +649,28 @@ html.wf-inactive body {
   background: #fff;
   margin: 10px 0;
 }
-.entry-image:hover .meta,
-.entry-image.active .meta {
-  -webkit-transform: scale(1) translate3d(0, 0, 0);
-  -moz-transform: scale(1) translate3d(0, 0, 0);
-  -o-transform: scale(1) translate3d(0, 0, 0);
-  -ms-transform: scale(1) translate3d(0, 0, 0);
-  transform: scale(1) translate3d(0, 0, 0);
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
+@media (min-width: 480px) /* Tablet & Desktop */ {
+  .entry-image:hover .meta,
+  .entry-image.active .meta {
+    -webkit-transform: scale(1) translate3d(0, 0, 0);
+    -moz-transform: scale(1) translate3d(0, 0, 0);
+    -o-transform: scale(1) translate3d(0, 0, 0);
+    -ms-transform: scale(1) translate3d(0, 0, 0);
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  .entry-image.active:hover .meta {
+    -webkit-transform: scale(0.95) translate3d(0, 0, 0);
+    -moz-transform: scale(0.95) translate3d(0, 0, 0);
+    -o-transform: scale(0.95) translate3d(0, 0, 0);
+    -ms-transform: scale(0.95) translate3d(0, 0, 0);
+    transform: scale(0.95) translate3d(0, 0, 0);
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
 }
 @media (min-width: 768px) /* Desktop */ {
   .entry-image.w1 .text {
