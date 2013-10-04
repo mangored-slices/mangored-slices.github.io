@@ -290,6 +290,18 @@ html
       margin-left: 0.4em
       opacity: 0.5
 
+  a.link, .image
+    display: none
+
+  .text
+    font-size: 1em
+    line-height: 1.38
+
+  .date:after
+    small-hr(15px, $red)
+
+  .date-ago
+    display: none
 
 /* ----------------------------------------------------------------------------
  * Image entries
@@ -372,27 +384,6 @@ html
         font-size: 2.65em
       &.text-short .text
         font-size: 4em
-
-/* ----------------------------------------------------------------------------
- * Text entries
- */
-
-.entry-text
-  a.link
-    display: none
-
-  .image
-    display: none
-
-  .text
-    font-size: 1em
-    line-height: 1.38
-
-  .date:after
-    small-hr(15px, $red)
-
-  .date-ago
-    display: none
 
 /*
  * Debug mode

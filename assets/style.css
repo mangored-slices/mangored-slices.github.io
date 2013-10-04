@@ -536,6 +536,25 @@ html.wf-inactive body {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
+.entry-text a.link,
+.entry-text .image {
+  display: none;
+}
+.entry-text .text {
+  font-size: 1em;
+  line-height: 1.38;
+}
+.entry-text .date:after {
+  display: block;
+  content: '';
+  width: 15px;
+  height: 1px;
+  background: #b53c39;
+  margin: 10px 0;
+}
+.entry-text .date-ago {
+  display: none;
+}
 /* ----------------------------------------------------------------------------
  * Image entries
  */
@@ -648,30 +667,6 @@ html.wf-inactive body {
   .entry-image.w2.text-short .text {
     font-size: 4em;
   }
-}
-/* ----------------------------------------------------------------------------
- * Text entries
- */
-.entry-text a.link {
-  display: none;
-}
-.entry-text .image {
-  display: none;
-}
-.entry-text .text {
-  font-size: 1em;
-  line-height: 1.38;
-}
-.entry-text .date:after {
-  display: block;
-  content: '';
-  width: 15px;
-  height: 1px;
-  background: #b53c39;
-  margin: 10px 0;
-}
-.entry-text .date-ago {
-  display: none;
 }
 /*
  * Debug mode
