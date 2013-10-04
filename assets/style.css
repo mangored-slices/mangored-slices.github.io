@@ -511,6 +511,11 @@ html.wf-inactive body {
   height: 100%;
   z-index: 10;
 }
+@media (max-width: 480px) /* Mobile */ {
+  .entry-item a.link {
+    display: none;
+  }
+}
 .entry-item .date,
 .entry-item .date-ago {
   text-transform: uppercase;
