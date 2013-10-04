@@ -899,15 +899,18 @@ define('view.title', function() {
       timer = null;
       return this.monitor = monitor({
         "if": function(y) {
+          console.log("if");
           return y < _this.$el.outerHeight();
         },
         enter: function(y) {
+          console.log("enter");
           _this.pinHeight();
           $('html').addClass('pinned');
           return timer = setInterval(_this.pinHeight, 1500);
         },
         exit: function(y) {
           var height;
+          console.log("exit");
           $('html').removeClass('pinned');
           $('html').css({
             height: 'auto'
@@ -970,6 +973,12 @@ $(function() {
 });
 
 $(function() {
+  var isMobile;
+  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/);
+  return $('html').addClass(isMobile ? 'mobile' : 'desktop');
+});
+
+$(function() {
   var onFirstVisit,
     _this = this;
   onFirstVisit = require('lib.onfirstvisit');
@@ -982,12 +991,6 @@ $(function() {
       return App.titleView = new (require('view.title'))().render();
     }
   });
-});
-
-$(function() {
-  var isMobile;
-  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/);
-  return $('html').addClass(isMobile ? 'mobile' : 'desktop');
 });
 
 (function() {

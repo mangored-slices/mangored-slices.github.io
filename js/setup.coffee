@@ -15,6 +15,11 @@ $ ->
   App.listView = new (require 'view.list')().render()
   App.menuView = new (require 'view.menu')
 
+# Initialize 'mobile/desktop' classname'
+$ ->
+  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/)
+  $('html').addClass if isMobile then 'mobile' else 'desktop'
+
 # Initialize titleView
 $ ->
   onFirstVisit = require 'lib.onfirstvisit'
@@ -24,11 +29,6 @@ $ ->
       $('[role~="title_view"]').remove()
     else: =>
       App.titleView = new (require 'view.title')().render()
-
-# Initialize 'mobile/desktop' classname'
-$ ->
-  isMobile = navigator.userAgent.match(/iPod|iPad|iPhone|Android/)
-  $('html').addClass if isMobile then 'mobile' else 'desktop'
 
 # Timeout for webfont loader
 do ->

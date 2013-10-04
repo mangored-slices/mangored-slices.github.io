@@ -28,14 +28,17 @@ define 'view.title', ->
       timer = null
       @monitor = monitor
         if: (y) =>
+          console.log "if"
           y < @$el.outerHeight()
 
         enter: (y) =>
+          console.log "enter"
           @pinHeight()
           $('html').addClass 'pinned'
           timer = setInterval @pinHeight, 1500
 
         exit: (y) =>
+          console.log "exit"
           $('html').removeClass 'pinned'
           $('html').css height: 'auto'
 
