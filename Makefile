@@ -30,6 +30,7 @@ assets/vendor.js: \
 	vendor/underscore.js \
 	vendor/underscore-string.js \
 	vendor/backbone.js \
+	vendor/backbone-analytics.js \
 	vendor/moment.js \
 	vendor/nprogress.js \
 	vendor/jquery.fillsize.js \
