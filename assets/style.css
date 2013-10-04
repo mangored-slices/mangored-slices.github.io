@@ -460,6 +460,9 @@ html.wf-inactive body {
   -o-transition: opacity 300ms linear;
   -ms-transition: opacity 300ms linear;
   transition: opacity 300ms linear;
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  pointer-events: none;
 }
 .entry-item.placeholder {
   display: none;
