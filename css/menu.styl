@@ -1,0 +1,115 @@
+@import nib
+@import _common
+
+/* ----------------------------------------------------------------------------
+ * Header
+ */
+
+.main-heading
+  clearfix()
+
+  .logo
+    font-size: 3em
+    text-transform: uppercase
+    color: $txt
+
+  .desktop & .logo
+    transition: color 200ms linear
+
+  .service & .logo
+    color: white
+    white-text-shadow()
+
+  margin-bottom: 50px
+
+  .logo, .menu
+    float: left
+    margin-right: 20px
+
+    height: 30px
+    line-height: 30px
+
+/* ----------------------------------------------------------------------------
+ * Menu
+ */
+
+.menu
+  clearfix()
+  -webkit-backface-visibility: hidden
+
+  // Hide on mobile
+  @media (max-width: 480px) /* Mobile */
+    display: none
+
+  a
+    float: left
+    margin-right: 0
+
+    color: white
+    text-decoration: none
+    white-text-shadow()
+
+    display: block
+
+    position: relative
+    text-align: center
+
+    width: 12px
+    transition: width 300ms ease
+
+  a i
+    display: block
+
+    position: absolute
+    top: 0
+    left: 0
+    right: 10px
+    bottom: 0
+    z-index: 1
+
+    background: $red
+    transform: skew(-30deg)
+    transition: background 150ms linear
+
+  // Full background (when it's hovered, or when heading isn't hovered)
+  a.link-flickr i
+    background: $flickr-bg
+  a.link-instagram i
+    background: $instagram-bg
+  a.link-twitter i
+    background: $twitter-bg
+  a.link-tumblr i
+    background: $tumblr-bg
+
+  // White background
+  a.active
+    i
+      background: white
+    span
+      color: $txt
+      text-shadow: none
+
+  span
+    position: relative
+    z-index: 2
+    padding: 0
+    opacity: 0
+    padding-right: 10px
+
+    font-weight: bold
+    font-size: 0.9em
+    transition: opacity 50ms linear
+
+  a:hover, a.active,
+  .main-heading:hover & a /* <- remove this selector to enable the old style */
+    width: 100px
+
+    span
+      opacity: 1
+      transition: opacity 50ms linear 130ms
+
+    &:hover i
+      opacity: 0.8
+    &.active i
+      opacity: 1
+

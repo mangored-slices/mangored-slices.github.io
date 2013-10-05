@@ -224,6 +224,14 @@ html.wf-inactive body {
   -ms-filter: none;
   filter: none;
 }
+/*
+ * Debug mode
+ */
+.debug article,
+.debug .entry-list {
+  outline: solid 1px #0ff;
+}
+
 /* ----------------------------------------------------------------------------
  * Header
  */
@@ -262,6 +270,9 @@ html.wf-inactive body {
   height: 30px;
   line-height: 30px;
 }
+/* ----------------------------------------------------------------------------
+ * Menu
+ */
 .menu {
   zoom: 1;
   -webkit-backface-visibility: hidden;
@@ -381,6 +392,7 @@ html.wf-inactive body {
   -ms-filter: none;
   filter: none;
 }
+
 /* ----------------------------------------------------------------------------
  * Entry listing
  */
@@ -702,13 +714,6 @@ html.wf-inactive body {
   .entry-image.w2.text-short .text {
     font-size: 4em;
   }
-}
-/*
- * Debug mode
- */
-.debug article,
-.debug .entry-list {
-  outline: solid 1px #0ff;
 }
 
 /* ----------------------------------------------------------------------------

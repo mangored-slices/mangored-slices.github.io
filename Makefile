@@ -19,6 +19,8 @@ assets: \
 assets/style.css: \
 	assets/_reset.css \
 	assets/_base.css \
+	assets/_menu.css \
+	assets/_entries.css \
 	assets/_title-card.css \
 	assets/_entry-dialog.css \
 	css/nprogress.css
