@@ -100,8 +100,11 @@
     font-size: 0.9em
     transition: opacity 50ms linear
 
-  a:hover, a.active,
-  .main-heading:hover & a /* <- remove this selector to enable the old style */
+  // Expand the menu on:
+  a:hover,                // hover,
+  a.active,               // the currently-selected item,
+  .mobile & a,            // iPad and other tablets,
+  .main-heading:hover & a // when hovered on the heading
     width: 100px
 
     span

@@ -363,12 +363,14 @@ html.wf-inactive body {
 }
 .menu a:hover,
 .menu a.active,
-.main-heading:hover .menu a /* <- remove this selector to enable the old style */ {
+.mobile .menu a,
+.main-heading:hover .menu a {
   width: 100px;
 }
 .menu a:hover span,
 .menu a.active span,
-.main-heading:hover .menu a /* <- remove this selector to enable the old style */ span {
+.mobile .menu a span,
+.main-heading:hover .menu a span {
   opacity: 1;
   -ms-filter: none;
   filter: none;
@@ -380,14 +382,16 @@ html.wf-inactive body {
 }
 .menu a:hover:hover i,
 .menu a.active:hover i,
-.main-heading:hover .menu a /* <- remove this selector to enable the old style */:hover i {
+.mobile .menu a:hover i,
+.main-heading:hover .menu a:hover i {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
 .menu a:hover.active i,
 .menu a.active.active i,
-.main-heading:hover .menu a /* <- remove this selector to enable the old style */.active i {
+.mobile .menu a.active i,
+.main-heading:hover .menu a.active i {
   opacity: 1;
   -ms-filter: none;
   filter: none;
