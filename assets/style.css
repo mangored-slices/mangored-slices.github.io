@@ -430,6 +430,9 @@ html.wf-inactive body {
     width: 180px;
     height: 180px;
   }
+  .entry-list article:nth-child(10n+2) {
+    margin-top: 80px;
+  }
 }
 /* ----------------------------------------------------------------------------
  * Entry item
@@ -470,6 +473,7 @@ html.wf-inactive body {
 @media (min-width: 768px) /* Desktop */ {
   .entry-item.placeholder {
     display: block;
+    height: 108px;
   }
 }
 @media (min-width: 768px) /* Desktop */ {

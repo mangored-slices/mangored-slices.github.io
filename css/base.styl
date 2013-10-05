@@ -211,6 +211,10 @@ html
         width: $cell
         height: $cell
 
+    // For jaggedness
+    article:nth-child(10n+2)
+      margin-top: $gut * 2
+
 /* ----------------------------------------------------------------------------
  * Entry item
  */
@@ -234,6 +238,7 @@ html
 
     @media (min-width: 768px) /* Desktop */
       display: block
+      height: $cell*0.6
 
   // Custom sizes
   @media (min-width: 768px) /* Desktop */
