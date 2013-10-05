@@ -37,6 +37,9 @@ do ->
         $('html').addClass('wf-inactive')
   , 10000
 
+$ ->
+  $('html').addClass('wf-active') if App.config.isLocal
+
 # Load data and do stuff
 $ ->
   App.loader.load(

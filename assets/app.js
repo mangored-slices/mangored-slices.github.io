@@ -881,6 +881,10 @@ define('view.title', function() {
 
     TitleView.prototype.el = $(r('title_view'));
 
+    TitleView.prototype.events = {
+      'click .jump': 'jump'
+    };
+
     TitleView.prototype.minHeight = 100;
 
     TitleView.prototype.render = function() {
@@ -890,15 +894,37 @@ define('view.title', function() {
       return this;
     };
 
-    TitleView.prototype.height = function() {
-      return Math.max(this.minHeight, $(window).height());
+    /** Scrolls beyond the title view
+    */
+
+
+    TitleView.prototype.jump = function() {
+      return $('body').animate({
+        scrollTop: this.height() + 1
+      });
     };
+
+    /** Updates the height of the view
+    */
+
 
     TitleView.prototype.update = function() {
       return this.$el.css({
         height: this.height()
       });
     };
+
+    /** Returns the expected height of the view
+    */
+
+
+    TitleView.prototype.height = function() {
+      return Math.max(this.minHeight, $(window).height());
+    };
+
+    /** Returns the scrollmonitor instance that monitors for enter/exit
+    */
+
 
     TitleView.prototype.getMonitor = function() {
       var timer,
@@ -909,18 +935,15 @@ define('view.title', function() {
       timer = null;
       return this.monitor = monitor({
         "if": function(y) {
-          console.log("if");
           return y < _this.$el.outerHeight();
         },
         enter: function(y) {
-          console.log("enter");
           _this.pinHeight();
           $('html').addClass('pinned');
-          return timer = setInterval(_this.pinHeight, 1500);
+          return timer = setInterval(_this.pinHeight, 5000);
         },
         exit: function(y) {
           var height;
-          console.log("exit");
           $('html').removeClass('pinned');
           $('html').css({
             height: 'auto'
@@ -935,6 +958,10 @@ define('view.title', function() {
         }
       });
     };
+
+    /** "Fixes" the height of the document
+    */
+
 
     TitleView.prototype.pinHeight = function() {
       var h, pinned;
@@ -1010,6 +1037,12 @@ $(function() {
     }
   }, 10000);
 })();
+
+$(function() {
+  if (App.config.isLocal) {
+    return $('html').addClass('wf-active');
+  }
+});
 
 $(function() {
   return App.loader.load(App.fetcher.fetch().done(function() {

@@ -5,6 +5,8 @@ define 'view.title', ->
 
   class TitleView extends Backbone.View
     el: $(r 'title_view')
+    events:
+      'click .jump': 'jump'
 
     minHeight: 100
 
@@ -16,29 +18,37 @@ define 'view.title', ->
 
       this
 
-    height: ->
-      Math.max(@minHeight, $(window).height())
+    ###* Scrolls beyond the title view
+    ###
+    jump: ->
+      $('body').animate scrollTop: @height()+1
 
+    ###* Updates the height of the view
+    ###
     update: =>
       @$el.css height: @height()
 
+    ###* Returns the expected height of the view
+    ###
+    height: ->
+      Math.max(@minHeight, $(window).height())
+
+    ###* Returns the scrollmonitor instance that monitors for enter/exit
+    ###
     getMonitor: =>
       return unless $('html').is('.desktop')
 
       timer = null
       @monitor = monitor
         if: (y) =>
-          console.log "if"
           y < @$el.outerHeight()
 
         enter: (y) =>
-          console.log "enter"
           @pinHeight()
           $('html').addClass 'pinned'
-          timer = setInterval @pinHeight, 1500
+          timer = setInterval @pinHeight, 5000
 
         exit: (y) =>
-          console.log "exit"
           $('html').removeClass 'pinned'
           $('html').css height: 'auto'
 
@@ -48,6 +58,8 @@ define 'view.title', ->
           @monitor.disable()
           $(window).scrollTop (y - height)
 
+    ###* "Fixes" the height of the document
+    ###
     pinHeight: =>
       pinned = $('html').is('.pinned')
 
