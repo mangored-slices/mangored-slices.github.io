@@ -283,7 +283,7 @@ define('model.entry', function() {
     };
 
     Entry.prototype.toString = function() {
-      return this.get('text') || 'Entry';
+      return this.get('text') || '';
     };
 
     /**

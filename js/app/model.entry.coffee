@@ -46,7 +46,7 @@ define 'model.entry', ->
     slug: -> @cid
 
     toString: ->
-      @get('text') || 'Entry'
+      @get('text') || ''
 
     ###*
        date('ago')       #=> "3 days ago"
