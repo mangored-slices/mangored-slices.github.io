@@ -745,7 +745,7 @@ define('view.list', function() {
       var firstOfType, i, view,
         _this = this;
       i = this.$el.children().length;
-      firstOfType = this.$el.find(".service-" + (entry.source().name)).length === 0;
+      firstOfType = this.$el.find(".service-" + (entry.source().service)).length === 0;
       view = new EntryView({
         entry: entry,
         index: i,
