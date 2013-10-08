@@ -86,7 +86,7 @@ define 'view.entry', ->
     ###* Returns the length
     ###
     getLength: ->
-      len = @entry.get('text').length
+      len = @entry.get('text')?.length or 0
       if len <= 60
         'short'
       else if len <= 110

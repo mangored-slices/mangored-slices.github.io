@@ -539,8 +539,8 @@ define('view.entry', function() {
 
 
     EntryView.prototype.getLength = function() {
-      var len;
-      len = this.entry.get('text').length;
+      var len, _ref1;
+      len = ((_ref1 = this.entry.get('text')) != null ? _ref1.length : void 0) || 0;
       if (len <= 60) {
         return 'short';
       } else if (len <= 110) {
