@@ -29,7 +29,7 @@ define 'view.entry', ->
     renderClasses: ->
       @$el.addClass @options.class
       @$el.addClass "entry-#{@entry.typeClass()}"
-      @$el.addClass "service-#{@entry.source().name}"
+      @$el.addClass "service-#{@entry.source().service}"
       @$el.addClass "text-#{@getLength()}"
 
     ###* Renders common entries

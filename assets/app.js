@@ -462,7 +462,7 @@ define('view.entry', function() {
     EntryView.prototype.renderClasses = function() {
       this.$el.addClass(this.options["class"]);
       this.$el.addClass("entry-" + (this.entry.typeClass()));
-      this.$el.addClass("service-" + (this.entry.source().name));
+      this.$el.addClass("service-" + (this.entry.source().service));
       return this.$el.addClass("text-" + (this.getLength()));
     };
 
