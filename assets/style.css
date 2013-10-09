@@ -252,7 +252,7 @@ html.wf-inactive body {
   text-transform: uppercase;
   color: #222;
   font-family: acta-display, serif;
-  font-weight: 800;
+  font-weight: 700;
 }
 .desktop .main-heading .logo {
   -webkit-transition: color 200ms linear;
@@ -785,7 +785,7 @@ html.wf-inactive body {
 .title-card h1 {
   font-size: 3em;
   font-family: acta-display, serif;
-  font-weight: 800;
+  font-weight: 700;
 }
 .title-card p {
   font-size: 1.1em;
