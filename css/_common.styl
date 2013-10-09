@@ -1,6 +1,7 @@
 $txt = #222
 $bg = $fff
-$kepler = kepler-std-display, sans-serif
+$kepler = kepler-std-display, serif
+$acta = acta-display, serif
 
 // Palette
 $red = #b53c39
@@ -24,9 +25,19 @@ $spd = 100ms
 $cell = 180px
 $gut  = 40px
 
+$lh = 1.15
+
 body-type()
-  font-family: $kepler
-  font-weight: 400
+  font-family: $acta
+  font-weight: 500
+
+body-bold-type()
+  font-family: $acta
+  font-weight: 700
+
+body-xbold-type()
+  font-family: $acta
+  font-weight: 800
 
 small-hr($size, $color)
   display: block

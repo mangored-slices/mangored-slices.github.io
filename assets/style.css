@@ -130,7 +130,7 @@ button {
 
 html {
   height: 100%;
-  font-size: 16px;
+  font-size: 14px;
   background: #fff;
   overflow-y: scroll;
 }
@@ -142,7 +142,7 @@ input,
 td,
 textarea {
   line-height: 1.5;
-  font-family: kepler-std-display, sans-serif;
+  font-family: acta-display, serif;
   font-weight: 400;
   color: #222;
 }
@@ -251,6 +251,8 @@ html.wf-inactive body {
   font-size: 3em;
   text-transform: uppercase;
   color: #222;
+  font-family: acta-display, serif;
+  font-weight: 800;
 }
 .desktop .main-heading .logo {
   -webkit-transition: color 200ms linear;
@@ -547,7 +549,8 @@ html.wf-inactive body {
 .entry-item .date,
 .entry-item .date-ago {
   text-transform: uppercase;
-  font-weight: bold;
+  font-family: acta-display, serif;
+  font-weight: 800;
   font-size: 0.9em;
 }
 /* ----------------------------------------------------------------------------
@@ -560,7 +563,8 @@ html.wf-inactive body {
   }
 }
 .entry-text .text strong {
-  font-weight: bold;
+  font-family: acta-display, serif;
+  font-weight: 700;
 }
 .entry-text .text strong:after {
   content: '—';
@@ -575,7 +579,7 @@ html.wf-inactive body {
 }
 .entry-text .text {
   font-size: 1em;
-  line-height: 1.38;
+  line-height: 1.5869999999999997;
 }
 .entry-text .date:after {
   display: block;
@@ -667,7 +671,7 @@ html.wf-inactive body {
 }
 .entry-image .meta .text {
   font-size: 1.3em;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 .entry-image .meta .date-ago:before {
   display: block;
@@ -703,11 +707,11 @@ html.wf-inactive body {
 @media (min-width: 768px) /* Desktop */ {
   .entry-image.w1 .text {
     font-size: 1.1em;
-    line-height: 1.18;
+    line-height: 1.3569999999999998;
   }
   .entry-image.w1.text-short .text {
     font-size: 1.3em;
-    line-height: 1.1;
+    line-height: 1.265;
   }
   .entry-image.w2 .text {
     font-size: 2em;
@@ -780,6 +784,8 @@ html.wf-inactive body {
 }
 .title-card h1 {
   font-size: 3em;
+  font-family: acta-display, serif;
+  font-weight: 800;
 }
 .title-card p {
   font-size: 1.1em;

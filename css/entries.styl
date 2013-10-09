@@ -103,7 +103,7 @@
   // Date displays
   .date, .date-ago
     text-transform: uppercase
-    font-weight: bold
+    body-xbold-type()
     font-size: 0.9em
 
 /* ----------------------------------------------------------------------------
@@ -118,7 +118,7 @@
 
   // Text
   .text strong
-    font-weight: bold
+    body-bold-type()
     &:after
       content: '—'
       margin-left: 0.4em
@@ -129,7 +129,7 @@
 
   .text
     font-size: 1em
-    line-height: 1.38
+    line-height: 1.38 * $lh
 
   .date:after
     small-hr(15px, $red)
@@ -196,7 +196,8 @@
 
   .meta .text
     font-size: 1.3em
-    line-height: 1.10
+    // line-height: 1.3 * $lh
+    line-height: 1.3 // -- $acta
 
   .meta .date-ago:before
     small-hr(15px, white)
@@ -218,10 +219,10 @@
     &.w1
       & .text
         font-size: 1.1em
-        line-height: 1.18
+        line-height: 1.18 * $lh
       &.text-short .text
         font-size: 1.3em
-        line-height: 1.1
+        line-height: 1.1 * $lh
 
     &.w2
       & .text
